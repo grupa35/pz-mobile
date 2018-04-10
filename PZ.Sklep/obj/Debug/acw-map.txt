@@ -1,0 +1,12 @@
+PZ.Sklep.LoginActivity, PZ.Sklep;md5f8c64be2d472e2102390d857dbbfbb5a.LoginActivity
+PZ.Sklep.LoginActivity, PZ.Sklep, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5f8c64be2d472e2102390d857dbbfbb5a.LoginActivity
+PZ.Sklep.LoginActivity;md5f8c64be2d472e2102390d857dbbfbb5a.LoginActivity
+pz.sklep.LoginActivity;md5f8c64be2d472e2102390d857dbbfbb5a.LoginActivity
+PZ.Sklep.MainActivity, PZ.Sklep;md5f8c64be2d472e2102390d857dbbfbb5a.MainActivity
+PZ.Sklep.MainActivity, PZ.Sklep, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5f8c64be2d472e2102390d857dbbfbb5a.MainActivity
+PZ.Sklep.MainActivity;md5f8c64be2d472e2102390d857dbbfbb5a.MainActivity
+pz.sklep.MainActivity;md5f8c64be2d472e2102390d857dbbfbb5a.MainActivity
+PZ.Sklep.PokazSklepyActivity, PZ.Sklep;md5f8c64be2d472e2102390d857dbbfbb5a.PokazSklepyActivity
+PZ.Sklep.PokazSklepyActivity, PZ.Sklep, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5f8c64be2d472e2102390d857dbbfbb5a.PokazSklepyActivity
+PZ.Sklep.PokazSklepyActivity;md5f8c64be2d472e2102390d857dbbfbb5a.PokazSklepyActivity
+pz.sklep.PokazSklepyActivity;md5f8c64be2d472e2102390d857dbbfbb5a.PokazSklepyActivity

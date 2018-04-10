@@ -1,0 +1,7 @@
+C:\Users\krzys\source\repos\PZ.Sklep\PZ.Sklep\obj\Release\android\assets\PZ.Sklep.dll
+C:\Users\krzys\source\repos\PZ.Sklep\PZ.Sklep\obj\Release\android\assets\Java.Interop.dll
+C:\Users\krzys\source\repos\PZ.Sklep\PZ.Sklep\obj\Release\android\assets\Mono.Android.dll
+C:\Users\krzys\source\repos\PZ.Sklep\PZ.Sklep\obj\Release\android\assets\mscorlib.dll
+C:\Users\krzys\source\repos\PZ.Sklep\PZ.Sklep\obj\Release\android\assets\System.Core.dll
+C:\Users\krzys\source\repos\PZ.Sklep\PZ.Sklep\obj\Release\android\assets\System.dll
+C:\Users\krzys\source\repos\PZ.Sklep\PZ.Sklep\obj\Release\android\assets\System.Runtime.Serialization.dll
