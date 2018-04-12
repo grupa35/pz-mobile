@@ -50,6 +50,9 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f020001
 			public const int muka = 2130837505;
 			
+			// aapt resource value: 0x7f020002
+			public const int xd = 2130837506;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -72,11 +75,23 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f050004
 			public const int imageView1 = 2131034116;
 			
+			// aapt resource value: 0x7f050007
+			public const int imageView2 = 2131034119;
+			
 			// aapt resource value: 0x7f050005
 			public const int listView1 = 2131034117;
 			
+			// aapt resource value: 0x7f050009
+			public const int progressBar = 2131034121;
+			
 			// aapt resource value: 0x7f050000
 			public const int textItem = 2131034112;
+			
+			// aapt resource value: 0x7f050006
+			public const int textView1 = 2131034118;
+			
+			// aapt resource value: 0x7f050008
+			public const int textView2 = 2131034120;
 			
 			// aapt resource value: 0x7f050001
 			public const int txtCreatAccount = 2131034113;
@@ -108,6 +123,9 @@ namespace PZ.Sklep
 			
 			// aapt resource value: 0x7f030004
 			public const int PokazSklepy = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int Splash = 2130903045;
 			
 			static Layout()
 			{
