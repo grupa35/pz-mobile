@@ -8,9 +8,9 @@ namespace PZ.Sklep.Services
 {
     public static class SessionService
     {
-        private static AppUser user;
-        private static List<Product> cachedProducts;
-        private static Cart cart;
+        public static AppUser user;
+        public static List<Product> cachedProducts;
+        public static Cart cart;
 
         static SessionService()
         {

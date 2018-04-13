@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-  <string name="app_name">PZ.Sklep</string>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources> 
+	<string name="app_name">SUPER SKLEP XD</string>
+	<string name="strBottomLine">From android material design</string>
+	 <string name="open_drawer">Open drawer</string>
+	<string name="close_drawer">Close drawer</string>
 </resources>
