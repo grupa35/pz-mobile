@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <RelativeLayout
+        android:id="@+id/titleBarLinearLayout"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:background="#ff46a1e1">
+        <ImageView
+            android:id="@+id/menuIconImgView"
+            android:src="@drawable/menu_icon"
+            android:scaleType="fitXY"
+            android:layout_height="fill_parent"
+            android:layout_width="50dp"
+            android:padding="0dp"
+            android:requiresFadingEdge="none"
+            android:fadingEdge="none"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp" />
+        <TextView
+            android:id="@+id/txtActionBarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="Home"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:layout_centerVertical="true"
+            android:textSize="18dp"
+            android:layout_centerHorizontal="true" />
+        <ImageView
+            android:id="@+id/imgProfilePic"
+            android:scaleType="fitXY"
+            android:layout_height="match_parent"
+            android:layout_width="50dp"
+            android:padding="0dp"
+            android:requiresFadingEdge="none"
+            android:fadingEdge="none"
+            android:layout_marginLeft="25dp"
+            android:layout_marginBottom="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/txtPage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:textColor="#555555"
+        android:text="Home"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:layout_centerVertical="true"
+        android:textSize="25dp"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
+    <ListView
+        android:id="@+id/productsMainPageListView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="30dp"
+        android:fastScrollEnabled="true" />
+    <TextView
+        android:id="@+id/txtDescription"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textColor="#000000"
+        android:text="Desription goes here"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:textSize="18dp"
+        android:layout_above="@+id/btnImgExpander"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:visibility="gone" />
+    <ImageView
+        android:id="@+id/btnImgExpander"
+        android:layout_alignParentBottom="true"
+        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:src="@drawable/up_arrow"
+        android:background="#fff2f2f2" />
+    <ListView
+        android:id="@+id/menuListView"
+        android:layout_below="@+id/titleBarLinearLayout"
+        android:background="#ff64bbf8"
+        android:divider="#CFEBFF"
+        android:dividerHeight="1dp"
+        android:layout_marginLeft="0dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:visibility="gone" />
+</RelativeLayout>

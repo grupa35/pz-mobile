@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using PZ.Sklep.Acitvities;
+using PZ.Sklep.Activities;
 
 namespace PZ.Sklep
 {
@@ -30,7 +30,7 @@ namespace PZ.Sklep
         }
         private void onClickFunc(object sender, AdapterView.ItemClickEventArgs e)
         {
-            var intent = new Intent(this, typeof(ShopMainPageActivity));
+            var intent = new Intent(this, typeof(ShopPageActivity));
             StartActivity(intent);
         }
         //private void OnSklepKLIK(object sender, AdapterView.ItemClickEventArgs e)

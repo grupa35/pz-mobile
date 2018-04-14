@@ -26,11 +26,15 @@ namespace PZ.Sklep.Mocks
                     "tag1", "tag2","tag3"
                 },
                 Price = 100,
-                Description = new ProductDescription(),
+                Description = new ProductDescription()
+                {
+                    Description = "bla bla opis"
+                },
                 SizesQuantity = new Dictionary<string, int>()
                 {
                     {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
-                }
+                },
+                Img = "xd"
             },
             new Product()
             {
@@ -41,11 +45,16 @@ namespace PZ.Sklep.Mocks
                     "tag1", "tag2","tag3"
                 },
                 Price = 10,
-                Description = new ProductDescription(),
+                Description = new ProductDescription()
+                {
+                    Description = "bla bla opis22222"
+                },
                 SizesQuantity = new Dictionary<string, int>()
                 {
                     {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
                 }
+                ,
+                Img = "muka"
             },
             new Product()
             {
@@ -56,11 +65,15 @@ namespace PZ.Sklep.Mocks
                     "tag2","tag3"
                 },
                 Price = 300,
-                Description = new ProductDescription(),
+                Description = new ProductDescription()
+                {
+                    Description = "opis produktu heh"
+                },
                 SizesQuantity = new Dictionary<string, int>()
                 {
                     {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
-                }
+                },
+                Img = "xd"
             },
             new Product()
             {
@@ -75,7 +88,8 @@ namespace PZ.Sklep.Mocks
                 SizesQuantity = new Dictionary<string, int>()
                 {
                     {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
-                }
+                },
+                Img = "xd"
             },
             new Product()
             {
@@ -90,7 +104,8 @@ namespace PZ.Sklep.Mocks
                 SizesQuantity = new Dictionary<string, int>()
                 {
                     {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
-                }
+                },
+                Img = "xd"
             },
             new Product()
             {
@@ -105,7 +120,8 @@ namespace PZ.Sklep.Mocks
                 SizesQuantity = new Dictionary<string, int>()
                 {
                     {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
-                }
+                },
+                Img = "muka"
             },
             new Product()
             {
@@ -120,7 +136,8 @@ namespace PZ.Sklep.Mocks
                 SizesQuantity = new Dictionary<string, int>()
                 {
                     {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
-                }
+                },
+                Img = "muka"
             },
             new Product()
             {
@@ -135,7 +152,8 @@ namespace PZ.Sklep.Mocks
                 SizesQuantity = new Dictionary<string, int>()
                 {
                     {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
-                }
+                },
+                Img = "muka"
             },
             new Product()
             {
@@ -150,7 +168,8 @@ namespace PZ.Sklep.Mocks
                 SizesQuantity = new Dictionary<string, int>()
                 {
                     {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
-                }
+                },
+                Img = "muka"
             },
             new Product()
             {
@@ -165,7 +184,8 @@ namespace PZ.Sklep.Mocks
                 SizesQuantity = new Dictionary<string, int>()
                 {
                     {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
-                }
+                },
+                Img = "xd"
             },
             new Product()
             {
@@ -180,7 +200,8 @@ namespace PZ.Sklep.Mocks
                 SizesQuantity = new Dictionary<string, int>()
                 {
                     {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
-                }
+                },
+                Img = "xd"
             },
             new Product()
             {
@@ -195,7 +216,8 @@ namespace PZ.Sklep.Mocks
                 SizesQuantity = new Dictionary<string, int>()
                 {
                     {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
-                }
+                },
+                Img = "muka"
             },
             new Product()
             {
@@ -210,7 +232,8 @@ namespace PZ.Sklep.Mocks
                 SizesQuantity = new Dictionary<string, int>()
                 {
                     {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
-                }
+                },
+                Img = "muka"
             }
         };
     }
