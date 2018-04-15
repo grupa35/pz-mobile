@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/singleProductView"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_margin="15dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:id="@+id/productImage" />
+    <TextView
+        android:text="Text"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:paddingBottom="0dp"
+        android:id="@+id/productName" />
+    <TextView
+        android:text="Text"
+        android:textColor="#222222"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="55dp"
+        android:paddingRight="55dp"
+        android:id="@+id/productDescription" />
+  <Button
+      android:text="Dodaj do koszyka"
+      android:layout_width="match_parent"
+      android:layout_height="40dp"
+      android:background="@drawable/btnStyle"
+      android:id="@+id/addProductToCartBtn"
+      android:layout_marginLeft="40dp"
+      android:layout_marginRight="40dp"
+      android:layout_marginTop="70dp"
+      android:textColor="#FFFFFF"
+      android:textSize="15sp" />
+</LinearLayout>

@@ -2278,26 +2278,26 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020081
-			public const int avd_hide_password_1 = 2130837633;
-			
 			// aapt resource value: 0x7f020082
-			public const int avd_hide_password_2 = 2130837634;
+			public const int avd_hide_password_1 = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int avd_hide_password_3 = 2130837635;
+			public const int avd_hide_password_2 = 2130837635;
+			
+			// aapt resource value: 0x7f020084
+			public const int avd_hide_password_3 = 2130837636;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f020084
-			public const int avd_show_password_1 = 2130837636;
-			
 			// aapt resource value: 0x7f020085
-			public const int avd_show_password_2 = 2130837637;
+			public const int avd_show_password_1 = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int avd_show_password_3 = 2130837638;
+			public const int avd_show_password_2 = 2130837638;
+			
+			// aapt resource value: 0x7f020087
+			public const int avd_show_password_3 = 2130837639;
 			
 			// aapt resource value: 0x7f020055
 			public const int btnStyle = 2130837589;
@@ -2407,11 +2407,11 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f020078
 			public const int notification_icon_background = 2130837624;
 			
-			// aapt resource value: 0x7f02007f
-			public const int notification_template_icon_bg = 2130837631;
-			
 			// aapt resource value: 0x7f020080
-			public const int notification_template_icon_low_bg = 2130837632;
+			public const int notification_template_icon_bg = 2130837632;
+			
+			// aapt resource value: 0x7f020081
+			public const int notification_template_icon_low_bg = 2130837633;
 			
 			// aapt resource value: 0x7f020079
 			public const int notification_tile_bg = 2130837625;
@@ -2420,16 +2420,19 @@ namespace PZ.Sklep
 			public const int notify_panel_notification_icon_bg = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int tooltip_frame_dark = 2130837627;
+			public const int smieszne = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int tooltip_frame_light = 2130837628;
+			public const int tooltip_frame_dark = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int up_arrow = 2130837629;
+			public const int tooltip_frame_light = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int xd = 2130837630;
+			public const int up_arrow = 2130837630;
+			
+			// aapt resource value: 0x7f02007f
+			public const int xd = 2130837631;
 			
 			static Drawable()
 			{
@@ -2525,6 +2528,9 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f070027
 			public const int add = 2131165223;
 			
+			// aapt resource value: 0x7f0700b8
+			public const int addProductToCartBtn = 2131165368;
+			
 			// aapt resource value: 0x7f070070
 			public const int alertTitle = 2131165296;
 			
@@ -2549,8 +2555,8 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f07003d
 			public const int bottom = 2131165245;
 			
-			// aapt resource value: 0x7f0700bb
-			public const int btnImgExpander = 2131165371;
+			// aapt resource value: 0x7f0700c0
+			public const int btnImgExpander = 2131165376;
 			
 			// aapt resource value: 0x7f07009b
 			public const int btnSignIn = 2131165339;
@@ -2609,8 +2615,8 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f070060
 			public const int default_activity_button = 2131165280;
 			
-			// aapt resource value: 0x7f0700c4
-			public const int departmentTextView = 2131165380;
+			// aapt resource value: 0x7f0700c9
+			public const int departmentTextView = 2131165385;
 			
 			// aapt resource value: 0x7f070090
 			public const int design_bottom_sheet = 2131165328;
@@ -2693,11 +2699,11 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f07009d
 			public const int imageView1 = 2131165341;
 			
-			// aapt resource value: 0x7f0700be
-			public const int imageView2 = 2131165374;
+			// aapt resource value: 0x7f0700c3
+			public const int imageView2 = 2131165379;
 			
-			// aapt resource value: 0x7f0700b7
-			public const int imgProfilePic = 2131165367;
+			// aapt resource value: 0x7f0700bc
+			public const int imgProfilePic = 2131165372;
 			
 			// aapt resource value: 0x7f0700ad
 			public const int info = 2131165357;
@@ -2732,20 +2738,20 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f070061
 			public const int list_item = 2131165281;
 			
-			// aapt resource value: 0x7f0700c6
-			public const int masked = 2131165382;
+			// aapt resource value: 0x7f0700cb
+			public const int masked = 2131165387;
 			
 			// aapt resource value: 0x7f0700a6
 			public const int media_actions = 2131165350;
 			
-			// aapt resource value: 0x7f0700b5
-			public const int menuIconImgView = 2131165365;
-			
-			// aapt resource value: 0x7f0700bc
-			public const int menuListView = 2131165372;
+			// aapt resource value: 0x7f0700ba
+			public const int menuIconImgView = 2131165370;
 			
 			// aapt resource value: 0x7f0700c1
-			public const int message = 2131165377;
+			public const int menuListView = 2131165377;
+			
+			// aapt resource value: 0x7f0700c6
+			public const int message = 2131165382;
 			
 			// aapt resource value: 0x7f070031
 			public const int middle = 2131165233;
@@ -2756,20 +2762,20 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f070028
 			public const int multiply = 2131165224;
 			
-			// aapt resource value: 0x7f0700c3
-			public const int nameTextView = 2131165379;
-			
-			// aapt resource value: 0x7f0700ca
-			public const int nav_FeedBack = 2131165386;
-			
-			// aapt resource value: 0x7f0700c9
-			public const int nav_about = 2131165385;
-			
-			// aapt resource value: 0x7f0700c7
-			public const int nav_home = 2131165383;
-			
 			// aapt resource value: 0x7f0700c8
-			public const int nav_messages = 2131165384;
+			public const int nameTextView = 2131165384;
+			
+			// aapt resource value: 0x7f0700cf
+			public const int nav_FeedBack = 2131165391;
+			
+			// aapt resource value: 0x7f0700ce
+			public const int nav_about = 2131165390;
+			
+			// aapt resource value: 0x7f0700cc
+			public const int nav_home = 2131165388;
+			
+			// aapt resource value: 0x7f0700cd
+			public const int nav_messages = 2131165389;
 			
 			// aapt resource value: 0x7f070093
 			public const int navigation_header_container = 2131165331;
@@ -2801,17 +2807,26 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f07000b
 			public const int parent_matrix = 2131165195;
 			
-			// aapt resource value: 0x7f0700c2
-			public const int photoImageView = 2131165378;
+			// aapt resource value: 0x7f0700c7
+			public const int photoImageView = 2131165383;
 			
 			// aapt resource value: 0x7f07004d
 			public const int pin = 2131165261;
 			
-			// aapt resource value: 0x7f0700b9
-			public const int productsMainPageListView = 2131165369;
+			// aapt resource value: 0x7f0700b7
+			public const int productDescription = 2131165367;
 			
-			// aapt resource value: 0x7f0700c0
-			public const int progressBar = 2131165376;
+			// aapt resource value: 0x7f0700b5
+			public const int productImage = 2131165365;
+			
+			// aapt resource value: 0x7f0700b6
+			public const int productName = 2131165366;
+			
+			// aapt resource value: 0x7f0700be
+			public const int productsMainPageListView = 2131165374;
+			
+			// aapt resource value: 0x7f0700c5
+			public const int progressBar = 2131165381;
 			
 			// aapt resource value: 0x7f070006
 			public const int progress_circular = 2131165190;
@@ -2903,6 +2918,9 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f070025
 			public const int showTitle = 2131165221;
 			
+			// aapt resource value: 0x7f0700b4
+			public const int singleProductView = 2131165364;
+			
 			// aapt resource value: 0x7f07008b
 			public const int smallLabel = 2131165323;
 			
@@ -2963,11 +2981,11 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f070069
 			public const int textSpacerNoTitle = 2131165289;
 			
-			// aapt resource value: 0x7f0700bd
-			public const int textView1 = 2131165373;
+			// aapt resource value: 0x7f0700c2
+			public const int textView1 = 2131165378;
 			
-			// aapt resource value: 0x7f0700bf
-			public const int textView2 = 2131165375;
+			// aapt resource value: 0x7f0700c4
+			public const int textView2 = 2131165380;
 			
 			// aapt resource value: 0x7f070098
 			public const int text_input_password_toggle = 2131165336;
@@ -2984,8 +3002,8 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f07001c
 			public const int title = 2131165212;
 			
-			// aapt resource value: 0x7f0700b4
-			public const int titleBarLinearLayout = 2131165364;
+			// aapt resource value: 0x7f0700b9
+			public const int titleBarLinearLayout = 2131165369;
 			
 			// aapt resource value: 0x7f070071
 			public const int titleDividerNoCustom = 2131165297;
@@ -3017,20 +3035,20 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f070013
 			public const int transition_transform = 2131165203;
 			
-			// aapt resource value: 0x7f0700b6
-			public const int txtActionBarText = 2131165366;
+			// aapt resource value: 0x7f0700bb
+			public const int txtActionBarText = 2131165371;
 			
 			// aapt resource value: 0x7f07009a
 			public const int txtCreatAccount = 2131165338;
 			
-			// aapt resource value: 0x7f0700ba
-			public const int txtDescription = 2131165370;
+			// aapt resource value: 0x7f0700bf
+			public const int txtDescription = 2131165375;
 			
 			// aapt resource value: 0x7f07009f
 			public const int txtMnuText = 2131165343;
 			
-			// aapt resource value: 0x7f0700b8
-			public const int txtPage = 2131165368;
+			// aapt resource value: 0x7f0700bd
+			public const int txtPage = 2131165373;
 			
 			// aapt resource value: 0x7f07002d
 			public const int uniform = 2131165229;
@@ -3044,8 +3062,8 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f070016
 			public const int view_offset_helper = 2131165206;
 			
-			// aapt resource value: 0x7f0700c5
-			public const int visible = 2131165381;
+			// aapt resource value: 0x7f0700ca
+			public const int visible = 2131165386;
 			
 			// aapt resource value: 0x7f07003c
 			public const int withText = 2131165244;
@@ -3293,28 +3311,31 @@ namespace PZ.Sklep
 			public const int PokazSklepy = 2130903100;
 			
 			// aapt resource value: 0x7f03003d
-			public const int select_dialog_item_material = 2130903101;
+			public const int ProductDetailsPage = 2130903101;
 			
 			// aapt resource value: 0x7f03003e
-			public const int select_dialog_multichoice_material = 2130903102;
+			public const int select_dialog_item_material = 2130903102;
 			
 			// aapt resource value: 0x7f03003f
-			public const int select_dialog_singlechoice_material = 2130903103;
+			public const int select_dialog_multichoice_material = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int ShopMainPage = 2130903104;
+			public const int select_dialog_singlechoice_material = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int Splash = 2130903105;
+			public const int ShopMainPage = 2130903105;
 			
 			// aapt resource value: 0x7f030042
-			public const int support_simple_spinner_dropdown_item = 2130903106;
+			public const int Splash = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int tooltip = 2130903107;
+			public const int support_simple_spinner_dropdown_item = 2130903107;
 			
 			// aapt resource value: 0x7f030044
-			public const int userRow = 2130903108;
+			public const int tooltip = 2130903108;
+			
+			// aapt resource value: 0x7f030045
+			public const int userRow = 2130903109;
 			
 			static Layout()
 			{

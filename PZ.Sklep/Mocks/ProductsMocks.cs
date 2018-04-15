@@ -73,7 +73,7 @@ namespace PZ.Sklep.Mocks
                 {
                     {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
                 },
-                Img = "xd"
+                Img = "smieszne"
             },
             new Product()
             {

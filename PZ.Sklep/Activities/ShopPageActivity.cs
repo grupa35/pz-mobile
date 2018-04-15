@@ -46,12 +46,25 @@ namespace PZ.Sklep.Activities
             await RESTService.DownloadProductsFromAPI();
             myList.Adapter = new MyCustomListAdapter(SessionService.cachedProducts);
         }
+        //public override void OnBackPressed()
+        //{
+        //    txtPageName.Text = "Strona główna";
+        //    singleProductView.Visibility = ViewStates.Invisible;
+        //    txtPageName.Visibility = ViewStates.Invisible;
+        //    myList.Visibility = ViewStates.Visible;
+        //}
         private void onItemClickFunc(object sender, AdapterView.ItemClickEventArgs e)
         {
+            //int mydrw = (int)typeof(Resource.Drawable).GetField(SessionService.cachedProducts[e.Position].Img).GetValue(null);
+            //singleProductPhoto.SetImageDrawable(this.GetDrawable(mydrw));
+            //productName.Text = SessionService.cachedProducts[e.Position].Name;
+            //productDescription.Text = SessionService.cachedProducts[e.Position].Description.Description;
             //myList.Visibility = ViewStates.Invisible;
+            //singleProductView.Visibility = ViewStates.Visible;
             //txtPageName.Visibility = ViewStates.Visible;
-            //var intent = new Intent(this, typeof(Main));
-            //StartActivity(intent);
+            var intent = new Intent(this, typeof(ProductDetailsActivity));
+            intent.PutExtra("sessionProductId", e.Position);
+            StartActivity(intent);
         }
         void TapEvent()
         {
@@ -100,7 +113,7 @@ namespace PZ.Sklep.Activities
         #region " Menu related"
         void FnBindMenu()
         {
-            string[] strMnuText = { "Home", "AboutUs", "Products", "Events", "Serivce", "Clients", "Help", "Solution", "ContactUs" };
+            string[] strMnuText = { "Strona główna", "AboutUs", "Products", "Events", "Serivce", "Clients", "Help", "Solution", "ContactUs" };
             int[] strMnuUrl = { Resource.Drawable.icon_home, Resource.Drawable.icon_aboutus, Resource.Drawable.icon_product, Resource.Drawable.icon_event, Resource.Drawable.icon_service, Resource.Drawable.icon_client, Resource.Drawable.icon_help, Resource.Drawable.icon_solution, Resource.Drawable.icon_contactus };
             if (objAdapterMenu != null)
             {
@@ -115,6 +128,12 @@ namespace PZ.Sklep.Activities
         {
             txtActionBarText.Text = strMenuText;
             txtPageName.Text = strMenuText;
+            //if(strMenuText.Equals("Strona główna"))
+            //{
+            //    //singleProductView.Visibility = ViewStates.Invisible;
+            //    txtPageName.Visibility = ViewStates.Invisible;
+            //    myList.Visibility = ViewStates.Visible;
+            //}
             //selected action goes here
         }
         void FnToggleMenu()
