@@ -24,7 +24,6 @@ namespace PZ.Sklep.Services
         }
         public static async Task DownloadProductsFromAPI()
         {
-            //jak te ciołki zrobią (dobre) api to tu będzie wołany request zamiast pobrania mocka
             await Task.Run(() => {
                 SessionService.cachedProducts = ProductsMocks.JakiesFejkoweProdukty;
             });

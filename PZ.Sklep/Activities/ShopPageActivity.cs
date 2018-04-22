@@ -138,7 +138,6 @@ namespace PZ.Sklep.Activities
         }
         void FnToggleMenu()
         {
-            Console.WriteLine(menuListView.IsShown);
             if (menuListView.IsShown)
             {
                 menuListView.Animation = new TranslateAnimation(0f, -menuListView.MeasuredWidth, 0f, 0f);
