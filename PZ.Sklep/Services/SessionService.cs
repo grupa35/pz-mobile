@@ -10,11 +10,13 @@ namespace PZ.Sklep.Services
     {
         public static AppUser user;
         public static List<Product> cachedProducts;
+        public static List<Category> cachedCategories;
         public static Cart cart;
 
         static SessionService()
         {
             cachedProducts = new List<Product>();
+            cachedCategories = new List<Category>();
             cart = new Cart();
         }
     }

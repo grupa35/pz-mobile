@@ -44,6 +44,7 @@ namespace PZ.Sklep.Activities
             myList = FindViewById<ListView>(Resource.Id.productsMainPageListView);
             myList.ItemClick += onItemClickFunc;
             await RESTService.DownloadProductsFromAPI();
+            await RESTService.DownloadCategoriesFromAPI();
             myList.Adapter = new MyCustomListAdapter(SessionService.cachedProducts);
         }
         //public override void OnBackPressed()
