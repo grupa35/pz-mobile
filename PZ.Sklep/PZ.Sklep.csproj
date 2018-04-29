@@ -123,6 +123,7 @@
     <Compile Include="Activities\ShopPageActivity.cs" />
     <Compile Include="Activities\SplashScreen.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Services\UITools.cs" />
     <Compile Include="Utilities\GestureListener.cs" />
     <Compile Include="Mocks\ProductsMocks.cs" />
     <Compile Include="Models\AppUser.cs" />

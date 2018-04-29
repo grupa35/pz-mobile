@@ -43,8 +43,19 @@ namespace PZ.Sklep.Activities
             txtPageName.Visibility = ViewStates.Invisible;
             myList = FindViewById<ListView>(Resource.Id.productsMainPageListView);
             myList.ItemClick += onItemClickFunc;
-            await RESTService.DownloadProductsFromAPI();
-            await RESTService.DownloadCategoriesFromAPI();
+
+            ProgressDialog progressDialog = UITools.CreateAndShowLoadingDialog(this);
+
+            await RESTService.DownloadProductsFromAPI();//wywalic to stąd później
+
+            await RESTService.DownloadCategoriesFromAPI().ContinueWith(t => 
+                {
+                    RunOnUiThread(() => 
+                        {
+                            UITools.EndLoadingDialog(progressDialog);
+                        });
+                });
+
             myList.Adapter = new MyCustomListAdapter(SessionService.cachedProducts);
         }
         //public override void OnBackPressed()

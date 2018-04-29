@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using PZ.Sklep.Mocks;
 using RestSharp;
 using PZ.Sklep.Models;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace PZ.Sklep.Services
@@ -18,29 +14,20 @@ namespace PZ.Sklep.Services
         {
             client = new RestClient("http://shopgen.pl");
         }
-        public static async Task<string> SimpleGET()
-        {
-            string msg = string.Empty;
-            var request = new RestRequest("/api/test/hello");
-            IRestResponse response = await client.ExecuteTaskAsync(request);
-            return msg = response.Content;
-        }
         public static async Task DownloadProductsFromAPI(string category = "")
         {
-            string msg = string.Empty;
-            //podobno księciunie z bakendu mają uwzględnić kategorie podczas pobierania produktów ale czy tak będzie to niewiadomo xd
+            //podobno księciunie z bakendu mają uwzględnić kategorie i stronicowanie podczas pobierania produktów ale czy tak będzie to niewiadomo xd
             var request = new RestRequest("/api/products/");
             IRestResponse response = await client.ExecuteTaskAsync(request);
             SessionService.cachedProducts = await DeserializeProducts(response.Content);
         }
         public static async Task DownloadCategoriesFromAPI()
         {
-            string msg = string.Empty;
             var request = new RestRequest("/api/categories/");
-            client.ExecuteAsync<List<Category>>(request, (response) =>
+            await Task.Run( () => client.ExecuteAsync<List<Category>>(request, (response) =>
             {
                 SessionService.cachedCategories = response.Data;
-            });
+            }));
         }
         private static async Task<List<Product>> DeserializeProducts(string json)
         {
@@ -51,7 +38,7 @@ namespace PZ.Sklep.Services
                 data = productsJSON.Select(p => new Product
                 {
                     //jak bekend będzie wysyłał zdjęcia? - chuj wie. reszta danych jest popierdolona to ich nie ustawiam
-                    Id = 1,
+                    Id = 1,//myślałem że to będzie liczba xd ale bekend wysyła string :<
                     Name = (string)p["name"],
                     Price = (decimal)p["price"],
                     Img = "xd",
