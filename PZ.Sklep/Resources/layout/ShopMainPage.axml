@@ -72,7 +72,8 @@
         android:layout_marginTop="55dp"
         android:layout_marginBottom="30dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:groupIndicator="@null"/>
     <TextView
         android:id="@+id/txtDescription"
         android:layout_width="match_parent"
