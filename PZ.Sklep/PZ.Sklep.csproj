@@ -124,6 +124,8 @@
     <Compile Include="Activities\SplashScreen.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Services\UITools.cs" />
+    <Compile Include="Utilities\CategoryHolder.cs" />
+    <Compile Include="Utilities\CategoryListViewAdapter.cs" />
     <Compile Include="Utilities\GestureListener.cs" />
     <Compile Include="Mocks\ProductsMocks.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -160,6 +162,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ProductDetailsPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CategoryRow.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\SubcategoryRow.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

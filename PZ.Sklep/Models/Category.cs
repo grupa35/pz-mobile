@@ -2,7 +2,7 @@
 
 namespace PZ.Sklep.Models
 {
-    public class Category
+    public class Category : Java.Lang.Object
     {
         public string id { get; set; }
         public string name { get; set; }

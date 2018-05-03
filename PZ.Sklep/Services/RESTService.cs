@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using RestSharp;
 using PZ.Sklep.Models;
 using Newtonsoft.Json.Linq;
+using PZ.Sklep.Mocks;
+using System;
 
 namespace PZ.Sklep.Services
 {
@@ -24,10 +26,8 @@ namespace PZ.Sklep.Services
         public static async Task DownloadCategoriesFromAPI()
         {
             var request = new RestRequest("/api/categories/");
-            await Task.Run( () => client.ExecuteAsync<List<Category>>(request, (response) =>
-            {
-                SessionService.cachedCategories = response.Data;
-            }));
+            IRestResponse response = await client.ExecuteTaskAsync(request);
+            SessionService.cachedCategories = await DeserializeCategories(response.Content);
         }
         private static async Task<List<Product>> DeserializeProducts(string json)
         {
@@ -54,6 +54,27 @@ namespace PZ.Sklep.Services
                     {
                         {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
                     }
+                }).ToList();
+            });
+            return data;
+        }
+
+        private static async Task<List<Category>> DeserializeCategories(string json)
+        {
+            List<Category> data = new List<Category>();
+            await Task.Run(() => {
+                JArray productsJSON = JArray.Parse(json);
+                data = productsJSON.Select(p => new Category
+                {             
+                    id = (string)p["id"],
+                    name = (string)p["name"],
+                    subcategories =
+                    p["subcategories"].Select(c => new Category
+                    {
+                        id = (string)c["id"],
+                        name = (string)c["name"],
+                        // problem jak więcej zagnieżdżonych podkategorii
+                    }).ToList(),
                 }).ToList();
             });
             return data;
