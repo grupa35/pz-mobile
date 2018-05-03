@@ -14,5 +14,6 @@ namespace PZ.Sklep.Models
         public Dictionary<string,int> SizesQuantity { get; set; }
         public decimal Price { get; set; }
         public string Img { get; set; }
+        public Category Category { get; set; }
     }
 }
