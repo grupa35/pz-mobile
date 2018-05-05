@@ -23,6 +23,12 @@ namespace PZ.Sklep.Services
             IRestResponse response = await client.ExecuteTaskAsync(request);
             SessionService.cachedProducts = await DeserializeProducts(response.Content);
         }
+        public static async Task DownloadProductsFromMock()
+        {
+            await Task.Run(() => {
+                SessionService.cachedProducts = ProductsMocks.JakiesFejkoweProdukty;
+            });
+        }
         public static async Task DownloadCategoriesFromAPI()
         {
             var request = new RestRequest("/api/categories/");

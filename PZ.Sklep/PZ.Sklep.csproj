@@ -116,6 +116,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\ProductListPageActivity.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\Main.cs" />
     <Compile Include="Activities\PokazSklepyActivity.cs" />
@@ -168,6 +169,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\SubcategoryRow.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ProductListView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
