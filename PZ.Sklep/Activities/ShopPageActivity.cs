@@ -67,10 +67,8 @@ namespace PZ.Sklep.Activities
 
         private void OnSubcategoryClickHandler(object sender, ExpandableListView.ChildClickEventArgs e)
         {
-            throw new NotImplementedException();
-            //var intent = new Intent(this, typeof(ProductListPageActivity));
-            //intent.PutExtra("sessionProductId", e.Position);
-            //StartActivity(intent);
+            var intent = new Intent(this, typeof(ProductListPageActivity));
+            StartActivity(intent);
         }
 
         //public override void OnBackPressed()
