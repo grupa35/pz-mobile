@@ -53,6 +53,9 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=106.2.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.106.2.1\lib\netstandard2.0\RestSharp.dll</HintPath>
     </Reference>
@@ -113,12 +116,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\ProductListPageActivity.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\Main.cs" />
     <Compile Include="Activities\PokazSklepyActivity.cs" />
     <Compile Include="Activities\ProductDetailsActivity.cs" />
     <Compile Include="Activities\ShopPageActivity.cs" />
     <Compile Include="Activities\SplashScreen.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Services\UITools.cs" />
+    <Compile Include="Utilities\APIUrlsMap.cs" />
+    <Compile Include="Utilities\CategoryHolder.cs" />
+    <Compile Include="Utilities\CategoryListViewAdapter.cs" />
     <Compile Include="Utilities\GestureListener.cs" />
     <Compile Include="Mocks\ProductsMocks.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -155,6 +164,15 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ProductDetailsPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CategoryRow.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\SubcategoryRow.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ProductListView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

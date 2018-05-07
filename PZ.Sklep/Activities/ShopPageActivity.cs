@@ -11,6 +11,9 @@ using System.Linq;
 using Android.Graphics;
 using PZ.Sklep.Services;
 using System.Threading.Tasks;
+using PZ.Sklep.Utilities;
+using PZ.Sklep.Models;
+using System.Collections.Generic;
 
 namespace PZ.Sklep.Activities
 {
@@ -29,7 +32,8 @@ namespace PZ.Sklep.Activities
         TextView txtPageName;
         TextView txtDescription;
         ImageView btnDescExpander;
-        ListView myList;
+        //ListView myList;
+        ExpandableListView categoryListView;
 
         protected override async void OnCreate(Bundle bundle)
         {
@@ -41,11 +45,34 @@ namespace PZ.Sklep.Activities
             FnBindMenu();
 
             txtPageName.Visibility = ViewStates.Invisible;
-            myList = FindViewById<ListView>(Resource.Id.productsMainPageListView);
-            myList.ItemClick += onItemClickFunc;
-            await RESTService.DownloadProductsFromAPI();
-            myList.Adapter = new MyCustomListAdapter(SessionService.cachedProducts);
+            
+            categoryListView = FindViewById<ExpandableListView>(Resource.Id.myExpandableListview);
+
+            ProgressDialog progressDialog = UITools.CreateAndShowLoadingDialog(this);
+
+            await RESTService.DownloadFromApi<List<Category>>(APIUrlsMap.Categories).ContinueWith(t => 
+                {
+                    RunOnUiThread(() => 
+                        {
+                            UITools.EndLoadingDialog(progressDialog);
+                        });
+                });
+
+            categoryListView.SetAdapter(new CategoryListViewAdapter(this, SessionService.Data[APIUrlsMap.Categories] as List<Category>));
+            categoryListView.ChildClick += OnSubcategoryClickHandler;
+
+            //myList = FindViewById<ListView>(Resource.Id.productsMainPageListView);
+            //myList.ItemClick += onItemClickFunc;
+            //await RESTService.DownloadProductsFromAPI();//wywalic to stąd później
+            //myList.Adapter = new MyCustomListAdapter(SessionService.cachedProducts);
         }
+
+        private void OnSubcategoryClickHandler(object sender, ExpandableListView.ChildClickEventArgs e)
+        {
+            var intent = new Intent(this, typeof(ProductListPageActivity));
+            StartActivity(intent);
+        }
+
         //public override void OnBackPressed()
         //{
         //    txtPageName.Text = "Strona główna";
@@ -53,7 +80,8 @@ namespace PZ.Sklep.Activities
         //    txtPageName.Visibility = ViewStates.Invisible;
         //    myList.Visibility = ViewStates.Visible;
         //}
-        private void onItemClickFunc(object sender, AdapterView.ItemClickEventArgs e)
+
+        /*private void onItemClickFunc(object sender, AdapterView.ItemClickEventArgs e)
         {
             //int mydrw = (int)typeof(Resource.Drawable).GetField(SessionService.cachedProducts[e.Position].Img).GetValue(null);
             //singleProductPhoto.SetImageDrawable(this.GetDrawable(mydrw));
@@ -65,7 +93,7 @@ namespace PZ.Sklep.Activities
             var intent = new Intent(this, typeof(ProductDetailsActivity));
             intent.PutExtra("sessionProductId", e.Position);
             StartActivity(intent);
-        }
+        }*/
         void TapEvent()
         {
             menuIconImageView.Click += delegate (object sender, EventArgs e)

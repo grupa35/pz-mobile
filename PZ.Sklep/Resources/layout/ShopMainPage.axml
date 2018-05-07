@@ -60,13 +60,20 @@
         android:textSize="25dp"
         android:layout_centerHorizontal="true"
         android:textStyle="bold" />
-    <ListView
+    <!--<ListView
         android:id="@+id/productsMainPageListView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginTop="55dp"
         android:layout_marginBottom="30dp"
-        android:fastScrollEnabled="true" />
+        android:fastScrollEnabled="true" />-->
+    <ExpandableListView
+		    android:id="@+id/myExpandableListview"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:groupIndicator="@null"/>
     <TextView
         android:id="@+id/txtDescription"
         android:layout_width="match_parent"

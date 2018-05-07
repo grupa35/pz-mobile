@@ -9,13 +9,13 @@ namespace ServicesTest
     [TestClass]
     public class RESTServiceTest
     {
-        [TestMethod]
+        /*[TestMethod]
         public async Task SimpleGET()
         {
             Task<string> task = RESTService.SimpleGET();
             string ret = await task;
             Assert.AreEqual(ret, "hello world", true);
-        }
+        }*/
 
         [TestMethod]
         public async Task DownloadProductsFromAPI()
