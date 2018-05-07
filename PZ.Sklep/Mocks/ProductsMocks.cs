@@ -17,6 +17,7 @@ namespace PZ.Sklep.Mocks
     {
         public static List<Product> JakiesFejkoweProdukty = new List<Product>()
         {
+            // wincyj produktow do testow
             new Product()
             {
                 Id=1,
@@ -123,7 +124,7 @@ namespace PZ.Sklep.Mocks
                 },
                 Img = "muka"
             },
-            new Product()
+                        new Product()
             {
                 Id=7,
                 Name = "produkt7",
@@ -223,6 +224,230 @@ namespace PZ.Sklep.Mocks
             {
                 Id=13,
                 Name = "produkt13",
+                Tags = new List<string>()
+                {
+                    "tag1", "tag2","tag3"
+                },
+                Price = 69,
+                Description = new ProductDescription(),
+                SizesQuantity = new Dictionary<string, int>()
+                {
+                    {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
+                },
+                Img = "muka"
+            },
+                        new Product()
+            {
+                Id=14,
+                Name = "produkt14",
+                Tags = new List<string>()
+                {
+                    "tag1", "tag2","tag3"
+                },
+                Price = 100,
+                Description = new ProductDescription(),
+                SizesQuantity = new Dictionary<string, int>()
+                {
+                    {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
+                },
+                Img = "muka"
+            },
+            new Product()
+            {
+                Id=15,
+                Name = "produkt15",
+                Tags = new List<string>()
+                {
+                    "tag4", "tag2"
+                },
+                Price = 100,
+                Description = new ProductDescription(),
+                SizesQuantity = new Dictionary<string, int>()
+                {
+                    {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
+                },
+                Img = "muka"
+            },
+            new Product()
+            {
+                Id=16,
+                Name = "produkt16",
+                Tags = new List<string>()
+                {
+                    "tag1"
+                },
+                Price = 200,
+                Description = new ProductDescription(),
+                SizesQuantity = new Dictionary<string, int>()
+                {
+                    {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
+                },
+                Img = "muka"
+            },
+            new Product()
+            {
+                Id=17,
+                Name = "produkt17",
+                Tags = new List<string>()
+                {
+                    "tag1",
+                },
+                Price = 10,
+                Description = new ProductDescription(),
+                SizesQuantity = new Dictionary<string, int>()
+                {
+                    {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
+                },
+                Img = "xd"
+            },
+            new Product()
+            {
+                Id=11,
+                Name = "produkt18",
+                Tags = new List<string>()
+                {
+                    "tag2"
+                },
+                Price = 15,
+                Description = new ProductDescription(),
+                SizesQuantity = new Dictionary<string, int>()
+                {
+                    {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
+                },
+                Img = "xd"
+            },
+            new Product()
+            {
+                Id=12,
+                Name = "produkt19",
+                Tags = new List<string>()
+                {
+                    "tag1", "tag2","tag3"
+                },
+                Price = 20,
+                Description = new ProductDescription(),
+                SizesQuantity = new Dictionary<string, int>()
+                {
+                    {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
+                },
+                Img = "muka"
+            },
+            new Product()
+            {
+                Id=13,
+                Name = "produkt20",
+                Tags = new List<string>()
+                {
+                    "tag1", "tag2","tag3"
+                },
+                Price = 69,
+                Description = new ProductDescription(),
+                SizesQuantity = new Dictionary<string, int>()
+                {
+                    {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
+                },
+                Img = "muka"
+            },
+            new Product()
+            {
+                Id=7,
+                Name = "produkt21",
+                Tags = new List<string>()
+                {
+                    "tag1", "tag2","tag3"
+                },
+                Price = 100,
+                Description = new ProductDescription(),
+                SizesQuantity = new Dictionary<string, int>()
+                {
+                    {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
+                },
+                Img = "muka"
+            },
+            new Product()
+            {
+                Id=8,
+                Name = "produkt22",
+                Tags = new List<string>()
+                {
+                    "tag4", "tag2"
+                },
+                Price = 100,
+                Description = new ProductDescription(),
+                SizesQuantity = new Dictionary<string, int>()
+                {
+                    {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
+                },
+                Img = "muka"
+            },
+            new Product()
+            {
+                Id=9,
+                Name = "produkt23",
+                Tags = new List<string>()
+                {
+                    "tag1"
+                },
+                Price = 200,
+                Description = new ProductDescription(),
+                SizesQuantity = new Dictionary<string, int>()
+                {
+                    {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
+                },
+                Img = "muka"
+            },
+            new Product()
+            {
+                Id=10,
+                Name = "produkt24",
+                Tags = new List<string>()
+                {
+                    "tag1",
+                },
+                Price = 10,
+                Description = new ProductDescription(),
+                SizesQuantity = new Dictionary<string, int>()
+                {
+                    {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
+                },
+                Img = "xd"
+            },
+            new Product()
+            {
+                Id=11,
+                Name = "produkt25",
+                Tags = new List<string>()
+                {
+                    "tag2"
+                },
+                Price = 15,
+                Description = new ProductDescription(),
+                SizesQuantity = new Dictionary<string, int>()
+                {
+                    {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
+                },
+                Img = "xd"
+            },
+            new Product()
+            {
+                Id=12,
+                Name = "produkt26",
+                Tags = new List<string>()
+                {
+                    "tag1", "tag2","tag3"
+                },
+                Price = 20,
+                Description = new ProductDescription(),
+                SizesQuantity = new Dictionary<string, int>()
+                {
+                    {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
+                },
+                Img = "muka"
+            },
+            new Product()
+            {
+                Id=13,
+                Name = "produkt27",
                 Tags = new List<string>()
                 {
                     "tag1", "tag2","tag3"
