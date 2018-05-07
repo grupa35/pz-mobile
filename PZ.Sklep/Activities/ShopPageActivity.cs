@@ -12,6 +12,8 @@ using Android.Graphics;
 using PZ.Sklep.Services;
 using System.Threading.Tasks;
 using PZ.Sklep.Utilities;
+using PZ.Sklep.Models;
+using System.Collections.Generic;
 
 namespace PZ.Sklep.Activities
 {
@@ -48,7 +50,7 @@ namespace PZ.Sklep.Activities
 
             ProgressDialog progressDialog = UITools.CreateAndShowLoadingDialog(this);
 
-            await RESTService.DownloadCategoriesFromAPI().ContinueWith(t => 
+            await RESTService.DownloadFromApi<List<Category>>(APIUrlsMap.Categories).ContinueWith(t => 
                 {
                     RunOnUiThread(() => 
                         {
@@ -56,7 +58,7 @@ namespace PZ.Sklep.Activities
                         });
                 });
 
-            categoryListView.SetAdapter(new CategoryListViewAdapter(this, SessionService.cachedCategories));
+            categoryListView.SetAdapter(new CategoryListViewAdapter(this, SessionService.Data[APIUrlsMap.Categories] as List<Category>));
             categoryListView.ChildClick += OnSubcategoryClickHandler;
 
             //myList = FindViewById<ListView>(Resource.Id.productsMainPageListView);

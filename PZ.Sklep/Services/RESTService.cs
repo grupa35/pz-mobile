@@ -29,12 +29,20 @@ namespace PZ.Sklep.Services
                 SessionService.cachedProducts = ProductsMocks.JakiesFejkoweProdukty;
             });
         }
-        public static async Task DownloadCategoriesFromAPI()
+        //public static async Task DownloadCategoriesFromAPI()
+        //{
+        //    var request = new RestRequest("/api/categories/");
+        //    IRestResponse response = await client.ExecuteTaskAsync(request);
+        //    SessionService.cachedCategories = await DeserializeCategories(response.Content);
+        //}
+
+        public static async Task DownloadFromApi<T>(string url)
         {
-            var request = new RestRequest("/api/categories/");
-            IRestResponse response = await client.ExecuteTaskAsync(request);
-            SessionService.cachedCategories = await DeserializeCategories(response.Content);
+            var request = new RestRequest(url);
+            IRestResponse<T> response = await client.ExecuteTaskAsync<T>(request);
+            SessionService.Data[url] = response.Data;
         }
+
         private static async Task<List<Product>> DeserializeProducts(string json)
         {
             //trzeba sie tak jebać bo bekend ma jakieś popierdolone te obiekty
@@ -65,25 +73,25 @@ namespace PZ.Sklep.Services
             return data;
         }
 
-        private static async Task<List<Category>> DeserializeCategories(string json)
-        {
-            List<Category> data = new List<Category>();
-            await Task.Run(() => {
-                JArray productsJSON = JArray.Parse(json);
-                data = productsJSON.Select(p => new Category
-                {             
-                    id = (string)p["id"],
-                    name = (string)p["name"],
-                    subcategories =
-                    p["subcategories"].Select(c => new Category
-                    {
-                        id = (string)c["id"],
-                        name = (string)c["name"],
-                        // problem jak więcej zagnieżdżonych podkategorii
-                    }).ToList(),
-                }).ToList();
-            });
-            return data;
-        }
+        //private static async Task<List<Category>> DeserializeCategories(string json)
+        //{
+        //    List<Category> data = new List<Category>();
+        //    await Task.Run(() => {
+        //        JArray productsJSON = JArray.Parse(json);
+        //        data = productsJSON.Select(p => new Category
+        //        {             
+        //            id = (string)p["id"],
+        //            name = (string)p["name"],
+        //            subcategories =
+        //            p["subcategories"].Select(c => new Category
+        //            {
+        //                id = (string)c["id"],
+        //                name = (string)c["name"],
+        //                // problem jak więcej zagnieżdżonych podkategorii
+        //            }).ToList(),
+        //        }).ToList();
+        //    });
+        //    return data;
+        //}
     }
 }
