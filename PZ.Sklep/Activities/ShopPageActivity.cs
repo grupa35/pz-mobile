@@ -141,8 +141,8 @@ namespace PZ.Sklep.Activities
         #region " Menu related"
         void FnBindMenu()
         {
-            string[] strMnuText = { MenuItemStrings.MainPage, MenuItemStrings.Cart };
-            int[] strMnuUrl = { Resource.Drawable.icon_home, Resource.Drawable.icon_product, Resource.Drawable.koszyk };
+            string[] strMnuText = { "Strona główna", "AboutUs", "Products", "Events", "Serivce", "Clients", "Help", "Solution", MenuItemStrings.Cart };
+            int[] strMnuUrl = { Resource.Drawable.icon_home, Resource.Drawable.icon_aboutus, Resource.Drawable.icon_product, Resource.Drawable.icon_event, Resource.Drawable.icon_service, Resource.Drawable.icon_client, Resource.Drawable.icon_help, Resource.Drawable.icon_solution, Resource.Drawable.koszyk };
             if (objAdapterMenu != null)
             {
                 objAdapterMenu.actionMenuSelected -= FnMenuSelected;
