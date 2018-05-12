@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="#f2f2f2">
+    <RelativeLayout
+        android:id="@+id/cartTitleBar"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:background="#ff46a1e1">
+        <TextView
+            android:id="@+id/cartViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="GóWNO HEHEHEE"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:layout_centerVertical="true"
+            android:textSize="18dp"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/cartListView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="30dp"
+        android:background="@android:color/background_light"
+        android:fastScrollEnabled="true" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="50px"
+        android:minHeight="50px"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/cartListView"
+        android:id="@+id/cartTotalPriceLayout">
+        <TextView
+            android:id="@+id/cartTotalPriceStr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="Koszt całkowity:        "
+            android:textSize="18dp" />
+        <TextView
+            android:id="@+id/cartTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="69"
+            android:layout_alignParentRight="true"
+            android:textSize="18dp" />
+        <TextView
+            android:id="@+id/cartTotalPriceCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="zł"
+            android:layout_alignParentRight="true"
+            android:textSize="18dp" />
+    </LinearLayout>
+</RelativeLayout>
