@@ -136,6 +136,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductDescription.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Utilities\LocalOnclickListener.cs" />
     <Compile Include="Utilities\MyCustomListAdapter.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
