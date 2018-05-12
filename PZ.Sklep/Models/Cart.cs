@@ -7,5 +7,10 @@ namespace PZ.Sklep.Models
 {
     public class Cart
     {
+        public List<Product> Products { get; set; }
+        public Cart()
+        {
+            Products = new List<Product>();
+        }
     }
 }
