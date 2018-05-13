@@ -127,6 +127,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Services\UITools.cs" />
     <Compile Include="Utilities\APIUrlsMap.cs" />
+    <Compile Include="Utilities\CartListAdapter.cs" />
     <Compile Include="Utilities\CategoryHolder.cs" />
     <Compile Include="Utilities\CategoryListViewAdapter.cs" />
     <Compile Include="Utilities\GestureListener.cs" />

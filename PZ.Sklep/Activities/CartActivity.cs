@@ -31,7 +31,7 @@ namespace PZ.Sklep.Activities
             var totalPrice = FindViewById<TextView>(Resource.Id.cartTotalPrice);
             totalPrice.Text = CountTotalPrice();
 
-            productList.Adapter = new MyCustomListAdapter(SessionService.cart.Products);
+            productList.Adapter = new CartListAdapter(SessionService.cart.Products);
         }
 
         private void OnProductClickHandler(object sender, AdapterView.ItemClickEventArgs e)

@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
+﻿using System.Collections.Generic;
 using Android.Content;
-using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using PZ.Sklep.Activities;
@@ -15,11 +8,11 @@ using PZ.Sklep.Services;
 
 namespace PZ.Sklep
 {
-    public class MyCustomListAdapter : BaseAdapter<Product>
+    public class CartListAdapter : BaseAdapter<Product>
     {
         List<Product> products;
 
-        public MyCustomListAdapter(List<Product> products)
+        public CartListAdapter(List<Product> products)
         {
             this.products = products;
         }
@@ -67,23 +60,23 @@ namespace PZ.Sklep
             int mydrw = (int)typeof(Resource.Drawable).GetField(products[position].Img).GetValue(null);
             holder.Photo.SetImageDrawable(parent.Context.GetDrawable(mydrw));
             holder.Name.Text = products[position].Name;
-            holder.Price.Text ="Price: " + products[position].Price;
+            holder.Price.Text = "Price: " + products[position].Price;
 
             var localClickListener = new LocalOnclickListener();
             localClickListener.HandleOnClick = () =>
             {
-                Toast.MakeText(parent.Context, "Added to cart", ToastLength.Long).Show();
-                var intent = new Intent(parent.Context, typeof(CartActivity));
-                SessionService.cart.Products.Add(products[position]);
-                parent.Context.StartActivity(intent);
-                //Android.App.AlertDialog.Builder dialog = new AlertDialog.Builder(parent.Context);
-                //AlertDialog alert = dialog.Create();
-                //alert.SetTitle("Add to cart");
-                //alert.SetMessage(products[position].Name);
-                //alert.SetButton("OK", (c, ev) => { });
-                //alert.Show();
+                Toast.MakeText(parent.Context, "Removed from cart", ToastLength.Long).Show();
+                SessionService.cart.Products.Remove(products[position]);
+                this.NotifyDataSetChanged();
+                //var total_price = parent.FindViewById<TextView>(Resource.Id.cartTotalPrice);
+                //decimal sum = 0;
+                //foreach (var x in SessionService.cart.Products)
+                //    sum += x.Price;
+                //total_price.Text = sum.ToString();
+                //nie wiem co sie tu dzieje
             };
             holder.Btn.SetOnClickListener(localClickListener);
+            holder.Btn.Text = "Remove";
 
             return view;
         }
