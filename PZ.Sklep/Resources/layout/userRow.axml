@@ -6,48 +6,47 @@
     android:minWidth="25px"
     android:minHeight="25px"
     android:paddingBottom="4dp"
-    android:descendantFocusability="blocksDescendants" >
-  <ImageView
+    android:descendantFocusability="blocksDescendants">
+    <ImageView
         android:id="@+id/photoImageView"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:padding="5dp" />
-  <TextView
-      android:id="@+id/nameTextView"
-      android:layout_toRightOf="@id/photoImageView"
-      android:text="Name"
-      android:textAppearance="?android:attr/textAppearanceLarge"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:paddingLeft="5dp"
-      android:textColor="#000000" />
-  <TextView
-      android:id="@+id/departmentTextView"
-      android:layout_toRightOf="@id/photoImageView"
-      android:layout_below="@id/nameTextView"
-      android:text="Department"
-      android:textAppearance="?android:attr/textAppearanceSmall"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:paddingLeft="5dp"
-      android:textColor="#000000" />
-
-  <LinearLayout
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:gravity="right"
-      android:orientation="horizontal" >
-    <Button
-        android:text="Add to cart"
-        android:layout_width="50dp"
-        android:layout_height="match_parent"
-        android:background="@drawable/btnStyle"
-        android:id="@+id/addProductToCartFromListViewBtn"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:textColor="#FFFFFF"
-        android:textSize="15sp" />
-  </LinearLayout>
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_toRightOf="@id/photoImageView"
+        android:text="Name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:textColor="#000000" />
+    <TextView
+        android:id="@+id/departmentTextView"
+        android:layout_toRightOf="@id/photoImageView"
+        android:layout_below="@id/nameTextView"
+        android:text="Department"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:textColor="#000000" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal">
+        <Button
+            android:text="Add to cart"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/btnStyle"
+            android:id="@+id/addProductToCartFromListViewBtn"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+    </LinearLayout>
 </RelativeLayout>
