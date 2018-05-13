@@ -17,7 +17,7 @@ using System.Collections.Generic;
 
 namespace PZ.Sklep.Activities
 {
-    [Activity(Label = "SlidingMenu")]
+    [Activity(Label = "SlidingMenu", Theme = "@style/CategoryTheme")]
     public class ShopPageActivity : Activity
     {
         GestureDetector gestureDetector;
