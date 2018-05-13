@@ -18,7 +18,6 @@ namespace PZ.Sklep.Services
         }
         public static async Task DownloadProductsFromAPI(string category = "")
         {
-            //podobno księciunie z bakendu mają uwzględnić kategorie i stronicowanie podczas pobierania produktów ale czy tak będzie to niewiadomo xd
             var request = new RestRequest("/api/products/");
             IRestResponse response = await client.ExecuteTaskAsync(request);
             SessionService.cachedProducts = await DeserializeProducts(response.Content);
@@ -52,7 +51,7 @@ namespace PZ.Sklep.Services
                 data = productsJSON.Select(p => new Product
                 {
                     //jak bekend będzie wysyłał zdjęcia? - chuj wie. reszta danych jest popierdolona to ich nie ustawiam
-                    Id = 1,//myślałem że to będzie liczba xd ale bekend wysyła string :<
+                    Id = 1,//trzeba to zmienić bo bek ent wysy ła stri nk
                     Name = (string)p["name"],
                     Price = (decimal)p["price"],
                     Img = "xd",

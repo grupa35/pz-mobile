@@ -141,8 +141,8 @@ namespace PZ.Sklep.Activities
         #region " Menu related"
         void FnBindMenu()
         {
-            string[] strMnuText = { "Strona główna", "AboutUs", "Products", "Events", "Serivce", "Clients", "Help", "Solution", "ContactUs" };
-            int[] strMnuUrl = { Resource.Drawable.icon_home, Resource.Drawable.icon_aboutus, Resource.Drawable.icon_product, Resource.Drawable.icon_event, Resource.Drawable.icon_service, Resource.Drawable.icon_client, Resource.Drawable.icon_help, Resource.Drawable.icon_solution, Resource.Drawable.icon_contactus };
+            string[] strMnuText = { "Strona główna", "AboutUs", "Products", "Events", "Serivce", "Clients", "Help", "Solution", MenuItemStrings.Cart };
+            int[] strMnuUrl = { Resource.Drawable.icon_home, Resource.Drawable.icon_aboutus, Resource.Drawable.icon_product, Resource.Drawable.icon_event, Resource.Drawable.icon_service, Resource.Drawable.icon_client, Resource.Drawable.icon_help, Resource.Drawable.icon_solution, Resource.Drawable.koszyk };
             if (objAdapterMenu != null)
             {
                 objAdapterMenu.actionMenuSelected -= FnMenuSelected;
@@ -154,15 +154,15 @@ namespace PZ.Sklep.Activities
         }
         void FnMenuSelected(string strMenuText)
         {
-            txtActionBarText.Text = strMenuText;
-            txtPageName.Text = strMenuText;
-            //if(strMenuText.Equals("Strona główna"))
-            //{
-            //    //singleProductView.Visibility = ViewStates.Invisible;
-            //    txtPageName.Visibility = ViewStates.Invisible;
-            //    myList.Visibility = ViewStates.Visible;
-            //}
-            //selected action goes here
+            //txtActionBarText.Text = strMenuText;
+            //txtPageName.Text = strMenuText;
+            if (strMenuText.Equals(MenuItemStrings.Cart))
+                ShowCartActivity();
+        }
+        private void ShowCartActivity()
+        {
+            var intent = new Intent(this, typeof(CartActivity));
+            StartActivity(intent);
         }
         void FnToggleMenu()
         {
