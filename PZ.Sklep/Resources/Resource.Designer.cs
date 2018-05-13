@@ -2537,8 +2537,8 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f0700c0
 			public const int addProductToCartBtn = 2131165376;
 			
-			// aapt resource value: 0x7f0700cf
-			public const int addProductToCartFromListViewBtn = 2131165391;
+			// aapt resource value: 0x7f0700d4
+			public const int addProductToCartFromListViewBtn = 2131165396;
 			
 			// aapt resource value: 0x7f070070
 			public const int alertTitle = 2131165296;
@@ -2771,17 +2771,11 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f070061
 			public const int list_item = 2131165281;
 			
-			// aapt resource value: 0x7f0700d1
-			public const int masked = 2131165393;
-			
-			// aapt resource value: 0x7f0700a7
-			public const int media_actions = 2131165351;
-
-			// aapt resource value: 0x7f0700d5
-			public const int masked2 = 2131165397;
+			// aapt resource value: 0x7f0700d6
+			public const int masked = 2131165398;
 			
 			// aapt resource value: 0x7f0700ae
-			public const int media_actions2 = 2131165358;
+			public const int media_actions = 2131165358;
 			
 			// aapt resource value: 0x7f0700c5
 			public const int menuIconImgView = 2131165381;
@@ -2801,29 +2795,11 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f070028
 			public const int multiply = 2131165224;
 			
-			// aapt resource value: 0x7f0700c2
-			public const int myExpandableListview = 2131165378;
-			
-			// aapt resource value: 0x7f0700cd
-			public const int nameTextView = 2131165389;
-			
-			// aapt resource value: 0x7f0700d5
-			public const int nav_FeedBack = 2131165397;
-			
-			// aapt resource value: 0x7f0700d4
-			public const int nav_about = 2131165396;
-			
-			// aapt resource value: 0x7f0700d2
-			public const int nav_home = 2131165394;
-			
-			// aapt resource value: 0x7f0700d3
-			public const int nav_messages = 2131165395;
-
 			// aapt resource value: 0x7f0700c9
-			public const int myExpandableListview2 = 2131165385;
+			public const int myExpandableListview = 2131165385;
 			
 			// aapt resource value: 0x7f0700d2
-			public const int nameTextView2 = 2131165394;
+			public const int nameTextView = 2131165394;
 			
 			// aapt resource value: 0x7f07009b
 			public const int navigation_header_container = 2131165339;
@@ -3113,11 +3089,8 @@ namespace PZ.Sklep
 			// aapt resource value: 0x7f070016
 			public const int view_offset_helper = 2131165206;
 			
-			// aapt resource value: 0x7f0700d0
-			public const int visible = 2131165392;
-			
-			// aapt resource value: 0x7f0700d4
-			public const int visible2 = 2131165396;
+			// aapt resource value: 0x7f0700d5
+			public const int visible = 2131165397;
 			
 			// aapt resource value: 0x7f07003c
 			public const int withText = 2131165244;
