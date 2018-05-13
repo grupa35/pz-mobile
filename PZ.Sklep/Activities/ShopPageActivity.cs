@@ -141,8 +141,8 @@ namespace PZ.Sklep.Activities
         #region " Menu related"
         void FnBindMenu()
         {
-            string[] strMnuText = { "Strona główna", "AboutUs", "Products", "Events", "Serivce", "Clients", "Help", "Solution", MenuItemStrings.Cart };
-            int[] strMnuUrl = { Resource.Drawable.icon_home, Resource.Drawable.icon_aboutus, Resource.Drawable.icon_product, Resource.Drawable.icon_event, Resource.Drawable.icon_service, Resource.Drawable.icon_client, Resource.Drawable.icon_help, Resource.Drawable.icon_solution, Resource.Drawable.koszyk };
+            string[] strMnuText = { MenuItemStrings.MainPage, MenuItemStrings.Cart, MenuItemStrings.ShopsList };
+            int[] strMnuUrl = { Resource.Drawable.icon_home, Resource.Drawable.cart, Resource.Drawable.list };
             if (objAdapterMenu != null)
             {
                 objAdapterMenu.actionMenuSelected -= FnMenuSelected;
@@ -157,13 +157,21 @@ namespace PZ.Sklep.Activities
             //txtActionBarText.Text = strMenuText;
             //txtPageName.Text = strMenuText;
             if (strMenuText.Equals(MenuItemStrings.Cart))
-                ShowCartActivity();
+            {
+                ShowActivity(typeof(CartActivity));
+            }
+            else if (strMenuText.Equals(MenuItemStrings.ShopsList))
+            {
+                ShowActivity(typeof(PokazSklepyActivity));
+            }
+                
         }
-        private void ShowCartActivity()
+
+        private void ShowActivity(Type activity)
         {
-            var intent = new Intent(this, typeof(CartActivity));
-            StartActivity(intent);
+            StartActivity(activity);
         }
+
         void FnToggleMenu()
         {
             if (menuListView.IsShown)
