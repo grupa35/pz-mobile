@@ -35,9 +35,16 @@ namespace PZ.Sklep.Services
         //    SessionService.cachedCategories = await DeserializeCategories(response.Content);
         //}
 
-        public static async Task DownloadFromApi<T>(string url)
+        public static async Task DownloadFromApi<T>(string url, string strJSONContent = null, bool auth = false)
         {
             var request = new RestRequest(url);
+            if(auth)
+                request.AddHeader("Authorization", "Bearer " + SessionService.Token);
+            if(strJSONContent != null)
+            {
+                request.Parameters.Clear();
+                request.AddParameter("application/json", strJSONContent, ParameterType.RequestBody);
+            }
             IRestResponse<T> response = await client.ExecuteTaskAsync<T>(request);
             SessionService.Data[url] = response.Data;
         }
