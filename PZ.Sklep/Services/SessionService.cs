@@ -14,6 +14,8 @@ namespace PZ.Sklep.Services
         public static List<Product> cachedProducts;
         public static List<Category> cachedCategories;
         public static Cart cart;
+        public static string Token;
+        public static bool IsUserLogged;
 
         public static Dictionary<string, object> Data;
 
@@ -22,10 +24,17 @@ namespace PZ.Sklep.Services
             cachedProducts = new List<Product>();
             cachedCategories = new List<Category>();
             cart = new Cart();
-            cart.Products.Add(ProductsMocks.JakiesFejkoweProdukty[1]);
-            cart.Products.Add(ProductsMocks.JakiesFejkoweProdukty[4]);
             Data = new Dictionary<string, object>();
+
+
             Data.Add(APIUrlsMap.Categories, new List<Category>());
+            Token = string.Empty;
+            IsUserLogged = false;
+        }
+
+        public static void LogOff()
+        {
+
         }
     }
 }

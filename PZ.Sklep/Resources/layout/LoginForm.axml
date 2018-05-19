@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/background_light"
+    android:weightSum="100"
     android:minWidth="25px"
     android:minHeight="25px">
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/imageView1"
-        android:src="@drawable/muka"
-        android:scaleType="fitCenter" />
+    <TextView
+        android:text="Zaloguj się"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_weight="20"
+        android:layout_height="0dp"
+        android:textColor="#368DEB"
+        android:id="@+id/txtLog"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="30sp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:id="@+id/editLogin"
+        android:textColor="#368DEB"
+        android:gravity="center"
+        android:textColorHint="#D6E8FB"
+        android:hint="your login..."
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/EditTextStyle" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:id="@+id/editPass"
+        android:textColor="#368DEB"
+        android:gravity="center"
+        android:textColorHint="#D6E8FB"
+        android:hint="your very secret password..."
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:inputType="textPassword"
+        android:background="@drawable/EditTextStyle" />
+    <Button
+        android:text="Zaloguj się"
+        android:layout_width="match_parent"
+        android:layout_weight="15"
+        android:layout_height="0dp"
+        android:background="@drawable/btnStyle"
+        android:id="@+id/btnLogIn"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
 </LinearLayout>
