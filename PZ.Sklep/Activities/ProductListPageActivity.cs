@@ -45,14 +45,25 @@ namespace PZ.Sklep.Activities
                 });
             });
 
-            allItems = SessionService.cachedProducts.Skip((page - 1)  * PAGESIZE).Take(PAGESIZE).ToList();
+            allItems = SessionService.cachedProducts.Take(PAGESIZE).ToList();
             maxPosition = allItems.Count;
 
             btnLoad = new Button(this);
             btnLoad.Text = "Load more";
+
+            if (allItems.Count == 0)
+            {
+                btnLoad.Enabled = false;
+                btnLoad.Text = "Brak przedmiotów!";
+            }
+            else if (SessionService.cachedProducts.Count <= PAGESIZE)
+            {
+                btnLoad.Visibility = ViewStates.Invisible;
+            }
+
             btnLoad.Click += BtnLoadMore_ClickAsync;
             productList.AddFooterView(btnLoad);
-
+        
             productList.Adapter = new MyCustomListAdapter(allItems);
         }
 
@@ -75,7 +86,12 @@ namespace PZ.Sklep.Activities
             if (allItems.Count % 2 != 0)
             {
                 btnLoad.Visibility = ViewStates.Invisible;
-            } 
+            }
+            else if (allItems.Count % 2 == 0 && allItems.Count == SessionService.cachedProducts.Count)
+            {
+                btnLoad.Visibility = ViewStates.Invisible;
+
+            }
 
             maxPosition = allItems.Count;
             page++;
