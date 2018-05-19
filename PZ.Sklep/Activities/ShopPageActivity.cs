@@ -48,7 +48,7 @@ namespace PZ.Sklep.Activities
             
             categoryListView = FindViewById<ExpandableListView>(Resource.Id.myExpandableListview);
 
-            internetConnection();
+            downloadCategoriesIfConnected();
 
             //myList = FindViewById<ListView>(Resource.Id.productsMainPageListView);
             //myList.ItemClick += onItemClickFunc;
@@ -56,7 +56,7 @@ namespace PZ.Sklep.Activities
             //myList.Adapter = new MyCustomListAdapter(SessionService.cachedProducts);
         }
 
-        private async void internetConnection()
+        private async void downloadCategoriesIfConnected()
         {
 
             if (UITools.isConnected())
