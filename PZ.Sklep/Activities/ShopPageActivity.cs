@@ -1,8 +1,6 @@
 ﻿using System;
-
 using Android.App;
 using Android.Content;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
@@ -10,10 +8,10 @@ using Android.Views.Animations;
 using System.Linq;
 using Android.Graphics;
 using PZ.Sklep.Services;
-using System.Threading.Tasks;
 using PZ.Sklep.Utilities;
 using PZ.Sklep.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PZ.Sklep.Activities
 {
@@ -34,12 +32,14 @@ namespace PZ.Sklep.Activities
         ImageView btnDescExpander;
         //ListView myList;
         ExpandableListView categoryListView;
+        ProgressDialog progressDialog;
 
         protected override async void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             Window.RequestFeature(WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.ShopMainPage);
+
             FnInitialization();
             TapEvent();
             FnBindMenu();
@@ -48,23 +48,37 @@ namespace PZ.Sklep.Activities
             
             categoryListView = FindViewById<ExpandableListView>(Resource.Id.myExpandableListview);
 
-            ProgressDialog progressDialog = UITools.CreateAndShowLoadingDialog(this);
-
-            await RESTService.DownloadFromApi<List<Category>>(APIUrlsMap.Categories).ContinueWith(t => 
-                {
-                    RunOnUiThread(() => 
-                        {
-                            UITools.EndLoadingDialog(progressDialog);
-                        });
-                });
-
-            categoryListView.SetAdapter(new CategoryListViewAdapter(this, SessionService.Data[APIUrlsMap.Categories] as List<Category>));
-            categoryListView.ChildClick += OnSubcategoryClickHandler;
+            internetConnection();
 
             //myList = FindViewById<ListView>(Resource.Id.productsMainPageListView);
             //myList.ItemClick += onItemClickFunc;
             //await RESTService.DownloadProductsFromAPI();//wywalic to stąd później
             //myList.Adapter = new MyCustomListAdapter(SessionService.cachedProducts);
+        }
+
+        private async void internetConnection()
+        {
+
+            if (UITools.isConnected())
+            {
+                UITools.checkInternetConnection(this);
+                progressDialog = UITools.CreateAndShowLoadingDialog(this);
+                await RESTService.DownloadFromApi<List<Category>>(APIUrlsMap.Categories).ContinueWith(t =>
+                {
+                    RunOnUiThread(() =>
+                    {
+                        UITools.EndLoadingDialog(progressDialog);
+                    }); 
+                });
+
+                categoryListView.SetAdapter(new CategoryListViewAdapter(this, SessionService.Data[APIUrlsMap.Categories] as List<Category>));
+                categoryListView.ChildClick += OnSubcategoryClickHandler;
+            }
+            else
+            {
+                UITools.checkInternetConnection(this);
+                Toast.MakeText(ApplicationContext, "Aplikacja wymaga uzycia internetu !", ToastLength.Short).Show();
+            }
         }
 
         private void OnSubcategoryClickHandler(object sender, ExpandableListView.ChildClickEventArgs e)
