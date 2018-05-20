@@ -11,10 +11,12 @@ namespace PZ.Sklep
     public class CartListAdapter : BaseAdapter<Product>
     {
         List<Product> products;
+        TextView price;
 
-        public CartListAdapter(List<Product> products)
+        public CartListAdapter(List<Product> products, TextView price)
         {
             this.products = products;
+            this.price = price;
         }
 
         public override Product this[int position]
@@ -60,23 +62,25 @@ namespace PZ.Sklep
             int mydrw = (int)typeof(Resource.Drawable).GetField(products[position].Img).GetValue(null);
             holder.Photo.SetImageDrawable(parent.Context.GetDrawable(mydrw));
             holder.Name.Text = products[position].Name;
-            holder.Price.Text = "Price: " + products[position].Price;
+            holder.Price.Text = "Cena: " + products[position].Price;
 
             var localClickListener = new LocalOnclickListener();
             localClickListener.HandleOnClick = () =>
             {
-                Toast.MakeText(parent.Context, "Removed from cart", ToastLength.Long).Show();
+                Toast.MakeText(parent.Context, "Produkt usunięty z koszyka!", ToastLength.Long).Show();
                 SessionService.cart.Products.Remove(products[position]);
+
                 this.NotifyDataSetChanged();
-                //var total_price = parent.FindViewById<TextView>(Resource.Id.cartTotalPrice);
-                //decimal sum = 0;
-                //foreach (var x in SessionService.cart.Products)
-                //    sum += x.Price;
-                //total_price.Text = sum.ToString();
-                //nie wiem co sie tu dzieje
+                decimal sum = 0;
+                foreach (var x in SessionService.cart.Products)
+                    sum += x.Price;
+                price.Text = sum.ToString();
+                //nie wiem czemu nie działa 
+
             };
             holder.Btn.SetOnClickListener(localClickListener);
-            holder.Btn.Text = "Remove";
+            //holder.Btn.SetBackgroundDrawable(Resource.Drawable.removeFromCart);
+            holder.Btn.SetBackgroundResource(Resource.Drawable.removeFromCart);
 
             return view;
         }

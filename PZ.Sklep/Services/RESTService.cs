@@ -58,7 +58,7 @@ namespace PZ.Sklep.Services
                 data = productsJSON.Select(p => new Product
                 {
                     //jak bekend będzie wysyłał zdjęcia? - chuj wie. reszta danych jest popierdolona to ich nie ustawiam
-                    Id = 1,//trzeba to zmienić bo bek ent wysy ła stri nk
+                    Id = (string)p["id"],
                     Name = (string)p["name"],
                     Price = (decimal)p["price"],
                     Img = "xd",
