@@ -99,8 +99,10 @@ namespace PZ.Sklep.Activities
 
         private void OnProductClickHandler(object sender, AdapterView.ItemClickEventArgs e)
         {
-            var intent = new Intent(this, typeof(ProductDetailsActivity));//założenie że lista wyświetlanych produktów jest odwzorowana 1:1 z listą produktów w sessionservice jest chujowe, trzeba będzie to kiedyś zmienić
-            intent.PutExtra("sessionProductId", e.Position);
+            var intent = new Intent(this, typeof(ProductDetailsActivity));
+            int position = e.Position;
+            string id = allItems[position].Id;
+            intent.PutExtra("sessionProductId", id);
             StartActivity(intent);
         }
 

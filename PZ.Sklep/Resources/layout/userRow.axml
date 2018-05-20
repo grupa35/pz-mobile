@@ -39,14 +39,12 @@
         android:gravity="right"
         android:orientation="horizontal">
         <Button
-            android:text="Add to cart"
+            android:text=" "
+            android:layout_height="50dp"
             android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/btnStyle"
+            android:background="@drawable/addtocart"
             android:id="@+id/addProductToCartFromListViewBtn"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp" />
+            android:layout_marginTop="10dp" />
     </LinearLayout>
 </RelativeLayout>

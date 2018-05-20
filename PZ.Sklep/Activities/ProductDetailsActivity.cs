@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using PZ.Sklep.Models;
 using PZ.Sklep.Services;
 
 namespace PZ.Sklep.Activities
@@ -20,24 +21,36 @@ namespace PZ.Sklep.Activities
         ImageView singleProductPhoto;
         TextView productName;
         TextView productDescription;
+        Button addToCartButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ProductDetailsPage);
-            SetViewData(Intent.GetIntExtra("sessionProductId",0));
+            string idProduct = Intent.GetStringExtra("sessionProductId");
+            SetViewData(idProduct);
+
+            addToCartButton = FindViewById<Button>(Resource.Id.addProductToCartBtn);
+            addToCartButton.Click += delegate
+            {
+                SessionService.cart.Products.Add(SessionService.cachedProducts.Where(x => x.Id.Equals(idProduct)).FirstOrDefault());
+                Toast.MakeText(this, "Produkt dodany do koszyka!", ToastLength.Long).Show();
+            };
+
         }
-        private void SetViewData(int productId)
+        private void SetViewData(string productId)
         {
             singleProductView = FindViewById<LinearLayout>(Resource.Id.singleProductView);
             singleProductPhoto = FindViewById<ImageView>(Resource.Id.productImage);
             productName = FindViewById<TextView>(Resource.Id.productName);
             productDescription = FindViewById<TextView>(Resource.Id.productDescription);
 
-            int mydrw = (int)typeof(Resource.Drawable).GetField(SessionService.cachedProducts[productId].Img).GetValue(null);
+            Product product = SessionService.cachedProducts.Where(x => x.Id.Equals(productId)).FirstOrDefault();
+
+            int mydrw = (int)typeof(Resource.Drawable).GetField(product.Img).GetValue(null);
             singleProductPhoto.SetImageDrawable(this.GetDrawable(mydrw));
-            productName.Text = SessionService.cachedProducts[productId].Name;
-            productDescription.Text = SessionService.cachedProducts[productId].Description.Description;
+            productName.Text = product.Name;
+            productDescription.Text = product.Description.Description;
         }
     }
 }

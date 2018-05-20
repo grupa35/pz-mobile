@@ -67,15 +67,16 @@ namespace PZ.Sklep
             int mydrw = (int)typeof(Resource.Drawable).GetField(products[position].Img).GetValue(null);
             holder.Photo.SetImageDrawable(parent.Context.GetDrawable(mydrw));
             holder.Name.Text = products[position].Name;
-            holder.Price.Text ="Price: " + products[position].Price;
+            holder.Price.Text ="Cena: " + products[position].Price;
 
             var localClickListener = new LocalOnclickListener();
             localClickListener.HandleOnClick = () =>
             {
-                Toast.MakeText(parent.Context, "Added to cart", ToastLength.Long).Show();
-                var intent = new Intent(parent.Context, typeof(CartActivity));
                 SessionService.cart.Products.Add(products[position]);
-                parent.Context.StartActivity(intent);
+                Toast.MakeText(parent.Context, "Produkt dodany do koszyka!", ToastLength.Long).Show();
+                //var intent = new Intent(parent.Context, typeof(CartActivity)); 
+                //parent.Context.StartActivity(intent);
+
                 //Android.App.AlertDialog.Builder dialog = new AlertDialog.Builder(parent.Context);
                 //AlertDialog alert = dialog.Create();
                 //alert.SetTitle("Add to cart");
