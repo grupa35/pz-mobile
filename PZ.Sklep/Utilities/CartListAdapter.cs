@@ -69,7 +69,7 @@ namespace PZ.Sklep
             var localClickListener = new LocalOnclickListener();
             localClickListener.HandleOnClick = () =>
             {
-                Toast.MakeText(parent.Context, "Produkt usunięty z koszyka!", ToastLength.Long).Show();
+                Toast.MakeText(parent.Context, products[position].Name + " usunięty z koszyka!", ToastLength.Long).Show();
                 SessionService.cart.Products.Remove(products[position]);
 
                 this.NotifyDataSetChanged();

@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using PZ.Sklep.Activities;
+using PZ.Sklep.Models;
 
 namespace PZ.Sklep
 {
@@ -19,13 +20,13 @@ namespace PZ.Sklep
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.PokazSklepy);
+            SetContentView(Resource.Layout.ShopListView);
 
             var listView = FindViewById<ListView>(Resource.Id.listView1);
-            var data = new string[] {
-               "Kiełbaski Janusz", "Sklep Andrzeja Maliny", "JanuszPol S.A."
+            var data = new List<Shop>() {
+               new Shop("1", "Kiełbaski Janusz"), new Shop("2", "Sklep Andrzeja Maliny"), new Shop("3", "JanuszPol S.A.")
             };
-            listView.Adapter = new ArrayAdapter(this, Resource.Layout.ListViewTemplate, data);
+            listView.Adapter = new ShopListAdapter(data);
             listView.ItemClick += onClickFunc;
         }
         private void onClickFunc(object sender, AdapterView.ItemClickEventArgs e)

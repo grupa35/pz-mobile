@@ -160,8 +160,8 @@ namespace PZ.Sklep.Activities
         #region " Menu related"
         void FnBindMenu()
         {
-            string[] strMnuText = { MenuItemStrings.MainPage, MenuItemStrings.Cart, MenuItemStrings.ShopsList };
-            int[] strMnuUrl = { Resource.Drawable.icon_home, Resource.Drawable.cart, Resource.Drawable.list };
+            string[] strMnuText = { MenuItemStrings.MainPage, MenuItemStrings.Cart, MenuItemStrings.ShopsList, MenuItemStrings.TurnOff };
+            int[] strMnuUrl = { Resource.Drawable.icon_home, Resource.Drawable.cart, Resource.Drawable.list, Resource.Drawable.turn_off };
             if (objAdapterMenu != null)
             {
                 objAdapterMenu.actionMenuSelected -= FnMenuSelected;
@@ -183,7 +183,11 @@ namespace PZ.Sklep.Activities
             {
                 ShowActivity(typeof(PokazSklepyActivity));
             }
-                
+            else if (strMenuText.Equals(MenuItemStrings.TurnOff))
+            {
+                System.Environment.Exit(0);
+            }
+
         }
 
         private void ShowActivity(Type activity)
