@@ -7,16 +7,14 @@
     android:minHeight="25px"
     android:paddingBottom="8dp"
     android:background="#ECEFF1">
-  <TextView
-      android:id="@+id/categoryRowName"
-      android:text="Name"
-      android:textAppearance="?android:attr/textAppearanceLarge"
-      android:gravity="center"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:paddingLeft="5dp"
-      android:textColor="#424242"
-      android:fontFamily="sans-serif-medium" 
-      />
-        
+    <TextView
+        android:id="@+id/categoryRowName"
+        android:text="Name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:textColor="#424242"
+        android:fontFamily="sans-serif-medium" />
 </RelativeLayout>
