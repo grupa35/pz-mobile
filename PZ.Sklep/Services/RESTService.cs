@@ -18,7 +18,7 @@ namespace PZ.Sklep.Services
         }
         public static async Task DownloadProductsFromAPI(string category = "")
         {
-            var request = new RestRequest("/api/products/");
+            var request = new RestRequest("dev/api/search?categoryId=" + category);
             IRestResponse response = await client.ExecuteTaskAsync(request);
             SessionService.cachedProducts = await DeserializeProducts(response.Content);
         }
@@ -61,7 +61,7 @@ namespace PZ.Sklep.Services
                     Id = (string)p["id"],
                     Name = (string)p["name"],
                     Price = (decimal)p["price"],
-                    Img = "xd",
+                    Img = "http://shopgen.pl" + (string)p["imgUrl"],
                     Tags = new List<string>()
                     {
                         "tag1", "tag2","tag3"

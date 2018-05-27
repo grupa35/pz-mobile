@@ -37,7 +37,9 @@ namespace PZ.Sklep.Activities
 
             progressDialog = UITools.CreateAndShowLoadingDialog(this);
 
-            await RESTService.DownloadAllProductsFromMock().ContinueWith(t =>
+            string idCategory = Intent.GetStringExtra("sessionCategoryId");
+
+            await RESTService.DownloadProductsFromAPI(idCategory).ContinueWith(t =>
             {
                 RunOnUiThread(() =>
                 {

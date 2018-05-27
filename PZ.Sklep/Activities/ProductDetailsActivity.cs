@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using PZ.Sklep.Models;
 using PZ.Sklep.Services;
+using Square.Picasso;
 
 namespace PZ.Sklep.Activities
 {
@@ -47,8 +48,9 @@ namespace PZ.Sklep.Activities
 
             Product product = SessionService.cachedProducts.Where(x => x.Id.Equals(productId)).FirstOrDefault();
 
-            int mydrw = (int)typeof(Resource.Drawable).GetField(product.Img).GetValue(null);
-            singleProductPhoto.SetImageDrawable(this.GetDrawable(mydrw));
+            //int mydrw = (int)typeof(Resource.Drawable).GetField(product.Img).GetValue(null);
+            //singleProductPhoto.SetImageDrawable(this.GetDrawable(mydrw));
+            Picasso.With(this).Load(product.Img).Into(singleProductPhoto);
             productName.Text = product.Name;
             productDescription.Text = product.Description.Description;
         }

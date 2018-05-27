@@ -84,6 +84,11 @@ namespace PZ.Sklep.Activities
         private void OnSubcategoryClickHandler(object sender, ExpandableListView.ChildClickEventArgs e)
         {
             var intent = new Intent(this, typeof(ProductListPageActivity));
+            int position = e.ChildPosition;
+            List<Category> list;
+            list = SessionService.Data[APIUrlsMap.Categories] as List<Category>;
+            string id = list[position].id;
+            intent.PutExtra("sessionCategoryId", id);
             StartActivity(intent);
         }
 
