@@ -73,7 +73,19 @@ namespace PZ.Sklep
             localClickListener.HandleOnClick = () =>
             {
                 SessionService.cart.Products.Add(products[position]);
-                Toast.MakeText(parent.Context, "Produkt dodany do koszyka!", ToastLength.Long).Show();
+            
+                AlertDialog.Builder dialog = new AlertDialog.Builder(parent.Context);
+                AlertDialog alert = dialog.Create();
+                alert.SetTitle("Dodano produkt");
+                alert.SetMessage(products[position].Name + " dodany do koszyka.");
+                alert.SetButton("Przejdź do koszyka", (c, ev) =>
+                {
+                    var intent = new Intent(parent.Context, typeof(CartActivity));
+                    parent.Context.StartActivity(intent);
+                });
+                alert.SetButton2("Kontynuuj zakupy", (c, ev) => { });
+                alert.Show();
+
                 //var intent = new Intent(parent.Context, typeof(CartActivity)); 
                 //parent.Context.StartActivity(intent);
 

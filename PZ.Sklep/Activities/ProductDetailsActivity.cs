@@ -33,11 +33,24 @@ namespace PZ.Sklep.Activities
             addToCartButton = FindViewById<Button>(Resource.Id.addProductToCartBtn);
             addToCartButton.Click += delegate
             {
-                SessionService.cart.Products.Add(SessionService.cachedProducts.Where(x => x.Id.Equals(idProduct)).FirstOrDefault());
-                Toast.MakeText(this, "Produkt dodany do koszyka!", ToastLength.Long).Show();
-            };
+                var idPorduct = SessionService.cachedProducts.Where(x => x.Id.Equals(idProduct)).FirstOrDefault();
+                SessionService.cart.Products.Add(idPorduct);
 
+                // czemu tutaj tak brzydko wygląda to nie mam pojęcia :c
+                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                AlertDialog alert = dialog.Create();
+                alert.SetTitle("Dodano produkt");
+                alert.SetMessage(idPorduct.Name + " dodany do koszyka.");
+                alert.SetButton("Przejdź do koszyka", (c, ev) =>
+                {
+                    var intent = new Intent(this, typeof(CartActivity));
+                    StartActivity(intent);
+                });
+                alert.SetButton2("Kontynuuj zakupy", (c, ev) => { });
+                alert.Show();
+            };
         }
+
         private void SetViewData(string productId)
         {
             singleProductView = FindViewById<LinearLayout>(Resource.Id.singleProductView);
@@ -52,5 +65,7 @@ namespace PZ.Sklep.Activities
             productName.Text = product.Name;
             productDescription.Text = product.Description.Description;
         }
+
+
     }
 }
