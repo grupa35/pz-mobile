@@ -5,7 +5,8 @@
     android:layout_height="fill_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:paddingBottom="4dp">
+    android:paddingBottom="4dp"
+    android:descendantFocusability="blocksDescendants">
     <ImageView
         android:id="@+id/photoImageView"
         android:layout_width="60dp"
@@ -21,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="5dp"
-        android:textColor="#000000"/>
+        android:textColor="#000000" />
     <TextView
         android:id="@+id/departmentTextView"
         android:layout_toRightOf="@id/photoImageView"
@@ -31,5 +32,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="5dp"
-        android:textColor="#000000"/>
+        android:textColor="#000000" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal">
+        <Button
+            android:text=" "
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:background="@drawable/addtocart"
+            android:id="@+id/addProductToCartFromListViewBtn"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
 </RelativeLayout>

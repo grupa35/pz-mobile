@@ -16,6 +16,7 @@ namespace PZ.Sklep
     {
         public ImageView Photo { get; set; }
         public TextView Name { get; set; }
-        public TextView Description { get; set; }
+        public TextView Price { get; set; }
+        public Button Btn { get; set; }
     }
 }

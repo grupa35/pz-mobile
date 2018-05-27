@@ -7,7 +7,7 @@ namespace PZ.Sklep.Models
 {
     public class Product
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public ProductDescription Description { get; set; }
         public List<string> Tags { get; set; }

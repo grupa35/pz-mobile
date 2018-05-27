@@ -9,7 +9,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using PZ.Sklep.Activities;
 using PZ.Sklep.Models;
+using PZ.Sklep.Services;
 
 namespace PZ.Sklep
 {
@@ -53,9 +55,10 @@ namespace PZ.Sklep
 
                 var photo = view.FindViewById<ImageView>(Resource.Id.photoImageView);
                 var name = view.FindViewById<TextView>(Resource.Id.nameTextView);
-                var description = view.FindViewById<TextView>(Resource.Id.departmentTextView);
+                var price = view.FindViewById<TextView>(Resource.Id.departmentTextView);
+                var btn = view.FindViewById<Button>(Resource.Id.addProductToCartFromListViewBtn);
 
-                view.Tag = new ViewHolder() { Photo = photo, Name = name, Description = description };
+                view.Tag = new ViewHolder() { Photo = photo, Name = name, Price = price, Btn = btn };
             }
 
             var holder = (ViewHolder)view.Tag;
@@ -64,7 +67,25 @@ namespace PZ.Sklep
             int mydrw = (int)typeof(Resource.Drawable).GetField(products[position].Img).GetValue(null);
             holder.Photo.SetImageDrawable(parent.Context.GetDrawable(mydrw));
             holder.Name.Text = products[position].Name;
-            holder.Description.Text = products[position].Description.Description;
+            holder.Price.Text ="Cena: " + products[position].Price;
+
+            var localClickListener = new LocalOnclickListener();
+            localClickListener.HandleOnClick = () =>
+            {
+                SessionService.cart.Products.Add(products[position]);
+                Toast.MakeText(parent.Context, "Produkt dodany do koszyka!", ToastLength.Long).Show();
+                //var intent = new Intent(parent.Context, typeof(CartActivity)); 
+                //parent.Context.StartActivity(intent);
+
+                //Android.App.AlertDialog.Builder dialog = new AlertDialog.Builder(parent.Context);
+                //AlertDialog alert = dialog.Create();
+                //alert.SetTitle("Add to cart");
+                //alert.SetMessage(products[position].Name);
+                //alert.SetButton("OK", (c, ev) => { });
+                //alert.Show();
+            };
+            holder.Btn.SetOnClickListener(localClickListener);
+
             return view;
         }
     }
