@@ -1,8 +1,6 @@
 ﻿using System;
-
 using Android.App;
 using Android.Content;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
@@ -10,14 +8,14 @@ using Android.Views.Animations;
 using System.Linq;
 using Android.Graphics;
 using PZ.Sklep.Services;
-using System.Threading.Tasks;
 using PZ.Sklep.Utilities;
 using PZ.Sklep.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PZ.Sklep.Activities
 {
-    [Activity(Label = "SlidingMenu")]
+    [Activity(Label = "SlidingMenu", Theme = "@style/CategoryTheme")]
     public class ShopPageActivity : Activity
     {
         GestureDetector gestureDetector;
@@ -34,12 +32,14 @@ namespace PZ.Sklep.Activities
         ImageView btnDescExpander;
         //ListView myList;
         ExpandableListView categoryListView;
+        ProgressDialog progressDialog;
 
         protected override async void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             Window.RequestFeature(WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.ShopMainPage);
+
             FnInitialization();
             TapEvent();
             FnBindMenu();
@@ -48,23 +48,37 @@ namespace PZ.Sklep.Activities
             
             categoryListView = FindViewById<ExpandableListView>(Resource.Id.myExpandableListview);
 
-            ProgressDialog progressDialog = UITools.CreateAndShowLoadingDialog(this);
-
-            await RESTService.DownloadFromApi<List<Category>>(APIUrlsMap.Categories).ContinueWith(t => 
-                {
-                    RunOnUiThread(() => 
-                        {
-                            UITools.EndLoadingDialog(progressDialog);
-                        });
-                });
-
-            categoryListView.SetAdapter(new CategoryListViewAdapter(this, SessionService.Data[APIUrlsMap.Categories] as List<Category>));
-            categoryListView.ChildClick += OnSubcategoryClickHandler;
+            internetConnection();
 
             //myList = FindViewById<ListView>(Resource.Id.productsMainPageListView);
             //myList.ItemClick += onItemClickFunc;
             //await RESTService.DownloadProductsFromAPI();//wywalic to stąd później
             //myList.Adapter = new MyCustomListAdapter(SessionService.cachedProducts);
+        }
+
+        private async void internetConnection()
+        {
+
+            if (UITools.isConnected())
+            {
+                UITools.checkInternetConnection(this);
+                progressDialog = UITools.CreateAndShowLoadingDialog(this);
+                await RESTService.DownloadFromApi<List<Category>>(APIUrlsMap.Categories).ContinueWith(t =>
+                {
+                    RunOnUiThread(() =>
+                    {
+                        UITools.EndLoadingDialog(progressDialog);
+                    }); 
+                });
+
+                categoryListView.SetAdapter(new CategoryListViewAdapter(this, SessionService.Data[APIUrlsMap.Categories] as List<Category>));
+                categoryListView.ChildClick += OnSubcategoryClickHandler;
+            }
+            else
+            {
+                UITools.checkInternetConnection(this);
+                Toast.MakeText(ApplicationContext, "Aplikacja wymaga uzycia internetu !", ToastLength.Short).Show();
+            }
         }
 
         private void OnSubcategoryClickHandler(object sender, ExpandableListView.ChildClickEventArgs e)
@@ -141,8 +155,8 @@ namespace PZ.Sklep.Activities
         #region " Menu related"
         void FnBindMenu()
         {
-            string[] strMnuText = { "Strona główna", "AboutUs", "Products", "Events", "Serivce", "Clients", "Help", "Solution", "ContactUs" };
-            int[] strMnuUrl = { Resource.Drawable.icon_home, Resource.Drawable.icon_aboutus, Resource.Drawable.icon_product, Resource.Drawable.icon_event, Resource.Drawable.icon_service, Resource.Drawable.icon_client, Resource.Drawable.icon_help, Resource.Drawable.icon_solution, Resource.Drawable.icon_contactus };
+            string[] strMnuText = { MenuItemStrings.MainPage, MenuItemStrings.Cart, MenuItemStrings.ShopsList, MenuItemStrings.TurnOff };
+            int[] strMnuUrl = { Resource.Drawable.icon_home, Resource.Drawable.cart, Resource.Drawable.list, Resource.Drawable.turn_off };
             if (objAdapterMenu != null)
             {
                 objAdapterMenu.actionMenuSelected -= FnMenuSelected;
@@ -154,16 +168,28 @@ namespace PZ.Sklep.Activities
         }
         void FnMenuSelected(string strMenuText)
         {
-            txtActionBarText.Text = strMenuText;
-            txtPageName.Text = strMenuText;
-            //if(strMenuText.Equals("Strona główna"))
-            //{
-            //    //singleProductView.Visibility = ViewStates.Invisible;
-            //    txtPageName.Visibility = ViewStates.Invisible;
-            //    myList.Visibility = ViewStates.Visible;
-            //}
-            //selected action goes here
+            //txtActionBarText.Text = strMenuText;
+            //txtPageName.Text = strMenuText;
+            if (strMenuText.Equals(MenuItemStrings.Cart))
+            {
+                ShowActivity(typeof(CartActivity));
+            }
+            else if (strMenuText.Equals(MenuItemStrings.ShopsList))
+            {
+                ShowActivity(typeof(PokazSklepyActivity));
+            }
+            else if (strMenuText.Equals(MenuItemStrings.TurnOff))
+            {
+                System.Environment.Exit(0);
+            }
+
         }
+
+        private void ShowActivity(Type activity)
+        {
+            StartActivity(activity);
+        }
+
         void FnToggleMenu()
         {
             if (menuListView.IsShown)

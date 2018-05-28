@@ -12,11 +12,12 @@ using Android.Widget;
 
 namespace PZ.Sklep
 {
-    public class ViewHolder : Java.Lang.Object
+    public class LocalOnclickListener : Java.Lang.Object, View.IOnClickListener
     {
-        public ImageView Photo { get; set; }
-        public TextView Name { get; set; }
-        public TextView Price { get; set; }
-        public Button Btn { get; set; }
+        public void OnClick(View v)
+        {
+            HandleOnClick();
+        }
+        public System.Action HandleOnClick { get; set; }
     }
 }

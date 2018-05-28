@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
+﻿using System.Collections.Generic;
 using Android.Content;
-using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using PZ.Sklep.Activities;
@@ -16,13 +9,15 @@ using Square.Picasso;
 
 namespace PZ.Sklep
 {
-    public class MyCustomListAdapter : BaseAdapter<Product>
+    public class CartListAdapter : BaseAdapter<Product>
     {
         List<Product> products;
+        TextView price;
 
-        public MyCustomListAdapter(List<Product> products)
+        public CartListAdapter(List<Product> products, TextView price)
         {
             this.products = products;
+            this.price = price;
         }
 
         public override Product this[int position]
@@ -69,36 +64,25 @@ namespace PZ.Sklep
             //holder.Photo.SetImageDrawable(parent.Context.GetDrawable(mydrw));
             Picasso.With(parent.Context).Load(products[position].Img).Resize(100, 100).CenterCrop().Into(holder.Photo);
             holder.Name.Text = products[position].Name;
-            holder.Price.Text ="Cena: " + products[position].Price;
+            holder.Price.Text = "Cena: " + products[position].Price;
 
             var localClickListener = new LocalOnclickListener();
             localClickListener.HandleOnClick = () =>
             {
-                SessionService.cart.Products.Add(products[position]);
-            
-                AlertDialog.Builder dialog = new AlertDialog.Builder(parent.Context);
-                AlertDialog alert = dialog.Create();
-                alert.SetTitle("Dodano produkt");
-                alert.SetMessage(products[position].Name + " dodany do koszyka.");
-                alert.SetButton("Przejdź do koszyka", (c, ev) =>
-                {
-                    var intent = new Intent(parent.Context, typeof(CartActivity));
-                    parent.Context.StartActivity(intent);
-                });
-                alert.SetButton2("Kontynuuj zakupy", (c, ev) => { });
-                alert.Show();
+                Toast.MakeText(parent.Context, products[position].Name + " usunięty z koszyka!", ToastLength.Long).Show();
+                SessionService.cart.Products.Remove(products[position]);
 
-                //var intent = new Intent(parent.Context, typeof(CartActivity)); 
-                //parent.Context.StartActivity(intent);
+                this.NotifyDataSetChanged();
+                decimal sum = 0;
+                foreach (var x in SessionService.cart.Products)
+                    sum += x.Price;
+                price.Text = sum.ToString();
+                //nie wiem czemu nie działa 
 
-                //Android.App.AlertDialog.Builder dialog = new AlertDialog.Builder(parent.Context);
-                //AlertDialog alert = dialog.Create();
-                //alert.SetTitle("Add to cart");
-                //alert.SetMessage(products[position].Name);
-                //alert.SetButton("OK", (c, ev) => { });
-                //alert.Show();
             };
             holder.Btn.SetOnClickListener(localClickListener);
+            //holder.Btn.SetBackgroundDrawable(Resource.Drawable.removeFromCart);
+            holder.Btn.SetBackgroundResource(Resource.Drawable.removeFromCart);
 
             return view;
         }

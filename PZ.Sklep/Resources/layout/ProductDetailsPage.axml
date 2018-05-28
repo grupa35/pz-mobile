@@ -31,15 +31,15 @@
         android:paddingLeft="55dp"
         android:paddingRight="55dp"
         android:id="@+id/productDescription" />
-  <Button
-      android:text="Dodaj do koszyka"
-      android:layout_width="match_parent"
-      android:layout_height="40dp"
-      android:background="@drawable/btnStyle"
-      android:id="@+id/addProductToCartBtn"
-      android:layout_marginLeft="40dp"
-      android:layout_marginRight="40dp"
-      android:layout_marginTop="70dp"
-      android:textColor="#FFFFFF"
-      android:textSize="15sp" />
+    <Button
+        android:text="Dodaj do koszyka"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/btnStyle"
+        android:id="@+id/addProductToCartBtn"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="70dp"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
 </LinearLayout>

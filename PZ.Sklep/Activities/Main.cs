@@ -3,6 +3,7 @@ using Android.Widget;
 using Android.OS;
 using Android.Content;
 using PZ.Sklep.Services;
+using System;
 
 namespace PZ.Sklep
 {
@@ -14,25 +15,32 @@ namespace PZ.Sklep
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.Login);
+
             Button button = FindViewById<Button>(Resource.Id.btnSignIn);
-            button.Click += delegate {
-                var intent = new Intent(this, typeof(LoginActivity));
-                StartActivity(intent);
-            };
+
+            if (!SessionService.IsUserLogged)
+            {
+                button.Text = "Zaloguj się";
+                button.Click += delegate {
+                    var intent = new Intent(this, typeof(LoginActivity));
+                    StartActivity(intent);
+                };
+            }
+            else
+            {
+                button.Text = "Wyloguj się";
+                button.Click += delegate {
+                    SessionService.LogOff();
+                    this.Finish();
+                    this.OnCreate(null);
+                };
+            }
 
             Button button2 = FindViewById<Button>(Resource.Id.btnSignUp);
-            button2.Click += /*async*/ delegate {
-                //var str = RESTService.SimpleGET();
-                //button2.Text = await str;
-
-                //przechodzimy z maina do listy sklepów - tak miało być, sklep ze sklepami, 
-                //czyli ma być wiele sklepów, użytkownik może sobie wybrać do którego
-                //chce wejsć, ale te mośki z bekendu tego nie ogarniają :c
-
+            button2.Click += delegate {
                 var intent = new Intent(this, typeof(PokazSklepyActivity));
                 StartActivity(intent);
             };
         }
     }
 }
-

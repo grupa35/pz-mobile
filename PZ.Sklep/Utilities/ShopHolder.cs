@@ -12,11 +12,8 @@ using Android.Widget;
 
 namespace PZ.Sklep
 {
-    public class ViewHolder : Java.Lang.Object
+    public class ShopHolder : Java.Lang.Object
     {
-        public ImageView Photo { get; set; }
         public TextView Name { get; set; }
-        public TextView Price { get; set; }
-        public Button Btn { get; set; }
     }
 }
