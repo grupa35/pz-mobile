@@ -5,6 +5,7 @@ using Android.Widget;
 using PZ.Sklep.Activities;
 using PZ.Sklep.Models;
 using PZ.Sklep.Services;
+using Square.Picasso;
 
 namespace PZ.Sklep
 {
@@ -59,8 +60,9 @@ namespace PZ.Sklep
             var holder = (ViewHolder)view.Tag;
 
             //holder.Photo.SetImageDrawable(ImageManager.Get(parent.Context, users[position].ImageUrl));
-            int mydrw = (int)typeof(Resource.Drawable).GetField(products[position].Img).GetValue(null);
-            holder.Photo.SetImageDrawable(parent.Context.GetDrawable(mydrw));
+            //int mydrw = (int)typeof(Resource.Drawable).GetField(products[position].Img).GetValue(null);
+            //holder.Photo.SetImageDrawable(parent.Context.GetDrawable(mydrw));
+            Picasso.With(parent.Context).Load(products[position].Img).Resize(100, 100).CenterCrop().Into(holder.Photo);
             holder.Name.Text = products[position].Name;
             holder.Price.Text = "Cena: " + products[position].Price;
 
