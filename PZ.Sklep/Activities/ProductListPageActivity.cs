@@ -37,7 +37,7 @@ namespace PZ.Sklep.Activities
 
             progressDialog = UITools.CreateAndShowLoadingDialog(this);
 
-            await RESTService.DownloadAllProductsFromMock().ContinueWith(t =>
+            await RESTService.DownloadProductsFromAPI().ContinueWith(t =>
             {
                 RunOnUiThread(() =>
                 {

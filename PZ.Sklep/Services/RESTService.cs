@@ -22,12 +22,12 @@ namespace PZ.Sklep.Services
             IRestResponse response = await client.ExecuteTaskAsync(request);
             SessionService.cachedProducts = await DeserializeProducts(response.Content);
         }
-        public static async Task DownloadAllProductsFromMock()
-        {
-            await Task.Run(() => {
-                SessionService.cachedProducts = ProductsMocks.JakiesFejkoweProdukty;
-            });
-        }
+        //public static async Task DownloadAllProductsFromMock()
+        //{
+        //    await Task.Run(() => {
+        //        SessionService.cachedProducts = ProductsMocks.JakiesFejkoweProdukty;
+        //    });
+        //}
         //public static async Task DownloadCategoriesFromAPI()
         //{
         //    var request = new RestRequest("/api/categories/");
@@ -61,7 +61,7 @@ namespace PZ.Sklep.Services
                     Id = (string)p["id"],
                     Name = (string)p["name"],
                     Price = (decimal)p["price"],
-                    Img = "xd",
+                    Img = "http://shopgen.pl" + (string)p["imgUrl"],
                     Tags = new List<string>()
                     {
                         "tag1", "tag2","tag3"
