@@ -118,10 +118,10 @@ namespace PZ.Sklep.Activities
                     isSingleTapFired = false;
                 }
             };
-            btnDescExpander.Click += delegate (object sender, EventArgs e)
-            {
-                FnDescriptionWindowToggle();
-            };
+            //btnDescExpander.Click += delegate (object sender, EventArgs e)
+            //{
+            //    FnDescriptionWindowToggle();
+            //};
         }
         void FnInitialization()
         {
@@ -136,8 +136,8 @@ namespace PZ.Sklep.Activities
             menuIconImageView = FindViewById<ImageView>(Resource.Id.menuIconImgView);
             txtActionBarText = FindViewById<TextView>(Resource.Id.txtActionBarText);
             txtPageName = FindViewById<TextView>(Resource.Id.txtPage);
-            txtDescription = FindViewById<TextView>(Resource.Id.txtDescription);
-            btnDescExpander = FindViewById<ImageView>(Resource.Id.btnImgExpander);
+            //txtDescription = FindViewById<TextView>(Resource.Id.txtDescription);
+            //btnDescExpander = FindViewById<ImageView>(Resource.Id.btnImgExpander);
             //changed sliding menu width to 1/3 of screen width 
             Display display = this.WindowManager.DefaultDisplay;
             var point = new Point();
@@ -241,24 +241,24 @@ namespace PZ.Sklep.Activities
         #endregion
 
         #region "Description toggle window"
-        void FnDescriptionWindowToggle()
-        {
-            if (txtDescription.IsShown)
-            {
-                txtDescription.Visibility = ViewStates.Gone;
-                txtDescription.Animation = new TranslateAnimation(0f, 0f, 0f, txtDescription.MeasuredHeight);
-                txtDescription.Animation.Duration = 300;
-                btnDescExpander.SetImageResource(Resource.Drawable.up_arrow);
-            }
-            else
-            {
-                txtDescription.Visibility = ViewStates.Visible;
-                txtDescription.RequestFocus();
-                txtDescription.Animation = new TranslateAnimation(0f, 0f, txtDescription.MeasuredHeight, 0f);
-                txtDescription.Animation.Duration = 300;
-                btnDescExpander.SetImageResource(Resource.Drawable.down_arrow);
-            }
-        }
+        //void FnDescriptionWindowToggle()
+        //{
+        //    if (txtDescription.IsShown)
+        //    {
+        //        txtDescription.Visibility = ViewStates.Gone;
+        //        txtDescription.Animation = new TranslateAnimation(0f, 0f, 0f, txtDescription.MeasuredHeight);
+        //        txtDescription.Animation.Duration = 300;
+        //        btnDescExpander.SetImageResource(Resource.Drawable.up_arrow);
+        //    }
+        //    else
+        //    {
+        //        txtDescription.Visibility = ViewStates.Visible;
+        //        txtDescription.RequestFocus();
+        //        txtDescription.Animation = new TranslateAnimation(0f, 0f, txtDescription.MeasuredHeight, 0f);
+        //        txtDescription.Animation.Duration = 300;
+        //        btnDescExpander.SetImageResource(Resource.Drawable.down_arrow);
+        //    }
+        //}
         #endregion
     }
 

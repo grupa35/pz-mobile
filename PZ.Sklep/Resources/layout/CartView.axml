@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:background="#f2f2f2">
+    android:background="@drawable/tlbrStyle">
     <RelativeLayout
         android:id="@+id/cartTitleBar"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="55dp"
-        android:background="#ff46a1e1">
+        android:background="@drawable/tlbrStyle">
         <TextView
             android:id="@+id/cartViewTitle"
             android:layout_width="wrap_content"

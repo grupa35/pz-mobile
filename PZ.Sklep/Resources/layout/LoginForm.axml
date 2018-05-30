@@ -8,7 +8,7 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:text="Zaloguj się"
+        android:text="Log in"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_weight="20"
@@ -17,7 +17,7 @@
         android:id="@+id/txtLog"
         android:gravity="center"
         android:textStyle="bold"
-        android:textSize="30sp" />
+        android:textSize="50sp" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="100px"
@@ -28,7 +28,7 @@
         android:hint="your login..."
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/EditTextStyle" />
     <EditText
         android:layout_width="match_parent"
@@ -44,7 +44,7 @@
         android:inputType="textPassword"
         android:background="@drawable/EditTextStyle" />
     <Button
-        android:text="Zaloguj się"
+        android:text="Sign in"
         android:layout_width="match_parent"
         android:layout_weight="15"
         android:layout_height="0dp"
@@ -52,7 +52,42 @@
         android:id="@+id/btnLogIn"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+    <TextView
+        android:text="Do not have an account?"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#368DEB"
+        android:paddingTop="40dp"
+        android:paddingBottom="10dp"
+        android:textSize="18sp" />
+    <Button
+        android:text="Create free account NOW!"
+        android:layout_width="match_parent"
+        android:layout_weight="15"
+        android:layout_height="0dp"
+        android:background="@drawable/btnStyleThin"
+        android:id="@+id/registerButton"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+    <Button
+        android:text="Buy without account"
+        android:layout_width="match_parent"
+        android:layout_weight="15"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btnStyleThin"
+        android:id="@+id/withoutAccountButton"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textColor="#FFFFFF"
         android:textSize="15sp" />
 </LinearLayout>

@@ -16,12 +16,12 @@
   </style>
   <style
     name="CategoryTheme.Base"
-    parent="Theme.AppCompat.Light.DarkActionBar">
+    parent="Theme.AppCompat.Light.NoActionBar">
     <item name="windowNoTitle">true</item>
     <item name="windowActionBar">false</item>
     <item name="colorPrimary">#009688</item>
-    <item name="colorPrimaryDark">#1976D2</item>
-    <item name="colorAccent">#FF4081</item>
+    <item name="colorPrimaryDark">#486EA9</item>
+    <item name="colorAccent">#000000</item>
     <item name="colorControlHighlight">#00B0FF</item>
   </style>
 </resources>

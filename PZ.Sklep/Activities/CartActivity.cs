@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace PZ.Sklep.Activities
 {
-    [Activity(Label = "CartActivity")]
+    [Activity(Label = "CartActivity", Theme = "@style/CategoryTheme")]
     public class CartActivity : Activity
     {
         ListView productList;
