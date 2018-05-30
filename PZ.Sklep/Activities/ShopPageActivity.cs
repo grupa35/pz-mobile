@@ -46,7 +46,7 @@ namespace PZ.Sklep.Activities
 
             txtPageName.Visibility = ViewStates.Invisible;
             
-            categoryListView = FindViewById<ExpandableListView>(Resource.Id.myExpandableListview);
+            //categoryListView = FindViewById<ExpandableListView>(Resource.Id.myExpandableListview);
             var toolbar = FindViewById<RelativeLayout>(Resource.Id.titleBarLinearLayout);
             toolbar.SetBackgroundDrawable(GetDrawable(Resource.Drawable.logo_img));
 
@@ -73,8 +73,12 @@ namespace PZ.Sklep.Activities
                     }); 
                 });
 
-                categoryListView.SetAdapter(new CategoryListViewAdapter(this, SessionService.Data[APIUrlsMap.Categories] as List<Category>));
-                categoryListView.ChildClick += OnSubcategoryClickHandler;
+                //categoryListView.SetAdapter(new CategoryListViewAdapter(this, SessionService.Data[APIUrlsMap.Categories] as List<Category>));
+                //categoryListView.ChildClick += OnSubcategoryClickHandler;
+                var categoriesCards = FindViewById<ListView>(Resource.Id.categoriesCards);
+                categoriesCards.ItemClick += OnSubcategoryClickHandler;
+                var moviesAdapter = new CardAdapter(this, SessionService.Data[APIUrlsMap.Categories] as List<Category>);
+                categoriesCards.Adapter = moviesAdapter;
             }
             else
             {
@@ -83,7 +87,7 @@ namespace PZ.Sklep.Activities
             }
         }
 
-        private void OnSubcategoryClickHandler(object sender, ExpandableListView.ChildClickEventArgs e)
+        private void OnSubcategoryClickHandler(object sender, AdapterView.ItemClickEventArgs e)
         {
             var intent = new Intent(this, typeof(ProductListPageActivity));
             StartActivity(intent);
@@ -152,13 +156,18 @@ namespace PZ.Sklep.Activities
                 layoutParams.Height = ViewGroup.LayoutParams.MatchParent;
                 menuListView.LayoutParameters = layoutParams;
             }
+            var turnOffImage = FindViewById<ImageView>(Resource.Id.imgWYLONCZ);
+            turnOffImage.Click += delegate
+            {
+                System.Environment.Exit(0);
+            };
             //menuListView.LayoutParameters = new RelativeLayout.LayoutParams(intDisplayWidth, ViewGroup.LayoutParams.MatchParent);
         }
         #region " Menu related"
         void FnBindMenu()
         {
-            string[] strMnuText = { MenuItemStrings.MainPage, MenuItemStrings.Cart, MenuItemStrings.ShopsList, MenuItemStrings.TurnOff };
-            int[] strMnuUrl = { Resource.Drawable.icon_home, Resource.Drawable.cart, Resource.Drawable.list, Resource.Drawable.turn_off };
+            string[] strMnuText = { MenuItemStrings.MainPage, MenuItemStrings.Cart, MenuItemStrings.TurnOff };
+            int[] strMnuUrl = { Resource.Drawable.icon_home, Resource.Drawable.cart, Resource.Drawable.turn_off };
             if (objAdapterMenu != null)
             {
                 objAdapterMenu.actionMenuSelected -= FnMenuSelected;
