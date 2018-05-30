@@ -16,26 +16,25 @@
             android:id="@+id/menuIconImgView"
             android:src="@drawable/menu_icon"
             android:scaleType="fitXY"
-            android:layout_height="wrap_content"
-            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_width="30dp"
             android:padding="0dp"
             android:requiresFadingEdge="none"
             android:fadingEdge="none"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="2dp" />
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="7dp" />
         <ImageView
             android:id="@+id/imgProfilePic"
+            android:src="@drawable/turn_off"
             android:scaleType="fitXY"
-            android:layout_height="match_parent"
-            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_width="35dp"
             android:padding="0dp"
             android:requiresFadingEdge="none"
             android:fadingEdge="none"
-            android:layout_marginLeft="25dp"
-            android:layout_marginBottom="1dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="7dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp" />
+            android:layout_marginRight="7dp" />
     </RelativeLayout>
     <TextView
         android:id="@+id/txtPage"
@@ -58,12 +57,11 @@
         android:groupIndicator="@null" />
     <ListView
         android:id="@+id/menuListView"
-
         android:background="@drawable/tlbrStyle"
         android:divider="#CFEBFF"
         android:dividerHeight="1dp"
         android:layout_marginLeft="0dp"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:visibility="gone" />
+        android:visibility="gone"/>
 </RelativeLayout>

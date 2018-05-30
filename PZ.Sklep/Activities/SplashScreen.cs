@@ -28,7 +28,7 @@ namespace PZ.Sklep
         }
         async void DoSplash()
         {
-            await Task.Delay(1500);//<--- musi być ta liczba, inna nie działa
+            await Task.Delay(1500);
             StartActivity(new Intent(Application.Context, typeof(LoginActivity)));
         }
     }
