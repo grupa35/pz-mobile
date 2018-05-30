@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -37,28 +38,20 @@
             android:layout_marginRight="7dp" />
     </RelativeLayout>
     <TextView
-        android:id="@+id/txtPage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:textColor="#555555"
-        android:text="Home"
-        android:layout_gravity="center"
-        android:clickable="true"
-        android:layout_centerVertical="true"
-        android:textSize="25dp"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold" />
-    <!--<ExpandableListView
-        android:id="@+id/myExpandableListview"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="0dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:groupIndicator="@null" />-->
+          android:text="Choose category"
+          android:textAppearance="?android:attr/textAppearanceSmall"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:textStyle="bold"
+          android:textColor="#368DEB"
+          android:paddingTop="210dp"
+          android:paddingBottom="10dp"
+          android:textSize="18sp" />
     <ListView
         android:id="@+id/categoriesCards"
         android:layout_width="match_parent"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="230dp"
         android:dividerHeight="0dp"
         android:layout_height="wrap_content" />
     <ListView

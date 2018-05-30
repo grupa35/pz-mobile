@@ -10,7 +10,8 @@
         android:layout_width="fill_parent"
         android:layout_height="245dp"
         android:layout_gravity="center_horizontal"
-        cardview:cardElevation="4dp"
+        cardview:cardElevation="10dp"
+        cardview:contentPadding="0dp"
         cardview:cardCornerRadius="5dp">
         <RelativeLayout
             android:layout_width="fill_parent"

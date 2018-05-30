@@ -44,7 +44,7 @@ namespace PZ.Sklep.Activities
             TapEvent();
             FnBindMenu();
 
-            txtPageName.Visibility = ViewStates.Invisible;
+            //txtPageName.Visibility = ViewStates.Invisible;
             
             //categoryListView = FindViewById<ExpandableListView>(Resource.Id.myExpandableListview);
             var toolbar = FindViewById<RelativeLayout>(Resource.Id.titleBarLinearLayout);
@@ -141,7 +141,7 @@ namespace PZ.Sklep.Activities
             menuListView = FindViewById<ListView>(Resource.Id.menuListView);
             menuIconImageView = FindViewById<ImageView>(Resource.Id.menuIconImgView);
             //txtActionBarText = FindViewById<TextView>(Resource.Id.txtActionBarText);
-            txtPageName = FindViewById<TextView>(Resource.Id.txtPage);
+            //txtPageName = FindViewById<TextView>(Resource.Id.txtPage);
             //txtDescription = FindViewById<TextView>(Resource.Id.txtDescription);
             //btnDescExpander = FindViewById<ImageView>(Resource.Id.btnImgExpander);
             //changed sliding menu width to 1/3 of screen width 
