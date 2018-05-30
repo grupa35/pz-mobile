@@ -10,7 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView2"
-        android:src="@drawable/SZOP_LOGO"
+        android:src="@drawable/splash"
         android:scaleType="fitCenter" />
     <ProgressBar
         android:layout_width="match_parent"

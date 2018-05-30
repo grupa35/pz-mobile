@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace PZ.Sklep
 {
-    [Activity(MainLauncher = true, NoHistory = true, Theme = "@android:style/Theme.NoTitleBar")]
+    [Activity(MainLauncher = true, NoHistory = true, Theme = "@style/CategoryTheme")]
     public class SplashScreen : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -28,7 +28,7 @@ namespace PZ.Sklep
         }
         async void DoSplash()
         {
-            await Task.Delay(500);//<--- musi być ta liczba, inna nie działa
+            await Task.Delay(1500);
             StartActivity(new Intent(Application.Context, typeof(LoginActivity)));
         }
     }
