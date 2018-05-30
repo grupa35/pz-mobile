@@ -10,30 +10,19 @@
         android:id="@+id/titleBarLinearLayout"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="55dp"
+        android:layout_height="200dp"
         android:background="@drawable/tlbrStyle">
         <ImageView
             android:id="@+id/menuIconImgView"
             android:src="@drawable/menu_icon"
             android:scaleType="fitXY"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_width="50dp"
             android:padding="0dp"
             android:requiresFadingEdge="none"
             android:fadingEdge="none"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="2dp" />
-        <TextView
-            android:id="@+id/txtActionBarText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
-            android:text="Home"
-            android:layout_gravity="center"
-            android:clickable="true"
-            android:layout_centerVertical="true"
-            android:textSize="18dp"
-            android:layout_centerHorizontal="true" />
         <ImageView
             android:id="@+id/imgProfilePic"
             android:scaleType="fitXY"
@@ -62,15 +51,14 @@
         android:textStyle="bold" />
     <ExpandableListView
         android:id="@+id/myExpandableListview"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="200dp"
         android:layout_marginBottom="0dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:groupIndicator="@null" />
-   
     <ListView
         android:id="@+id/menuListView"
-        android:layout_below="@+id/titleBarLinearLayout"
+
         android:background="@drawable/tlbrStyle"
         android:divider="#CFEBFF"
         android:dividerHeight="1dp"

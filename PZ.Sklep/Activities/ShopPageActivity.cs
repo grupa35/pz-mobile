@@ -47,6 +47,8 @@ namespace PZ.Sklep.Activities
             txtPageName.Visibility = ViewStates.Invisible;
             
             categoryListView = FindViewById<ExpandableListView>(Resource.Id.myExpandableListview);
+            var toolbar = FindViewById<RelativeLayout>(Resource.Id.titleBarLinearLayout);
+            toolbar.SetBackgroundDrawable(GetDrawable(Resource.Drawable.logo_img));
 
             internetConnection();
 
@@ -134,7 +136,7 @@ namespace PZ.Sklep.Activities
 
             menuListView = FindViewById<ListView>(Resource.Id.menuListView);
             menuIconImageView = FindViewById<ImageView>(Resource.Id.menuIconImgView);
-            txtActionBarText = FindViewById<TextView>(Resource.Id.txtActionBarText);
+            //txtActionBarText = FindViewById<TextView>(Resource.Id.txtActionBarText);
             txtPageName = FindViewById<TextView>(Resource.Id.txtPage);
             //txtDescription = FindViewById<TextView>(Resource.Id.txtDescription);
             //btnDescExpander = FindViewById<ImageView>(Resource.Id.btnImgExpander);
