@@ -93,7 +93,7 @@ namespace PZ.Sklep.Activities
             {
                 Category clickedCategory = (SessionService.Data[APIUrlsMap.Categories] as List<Category>)[e.Position];
                 var intent = new Intent(this, typeof(ProductListPageActivity));
-                intent.PutExtra("categoryId", clickedCategory.id);
+                intent.PutExtra("categoryId", clickedCategory.name);
                 StartActivity(intent);
             }
             catch(Exception ex)
