@@ -30,6 +30,6 @@
         android:layout_height="match_parent"
         android:layout_marginTop="55dp"
         android:layout_marginBottom="0dp"
-        android:background="@android:color/background_light"
+        android:background="#e8e9ea"
         android:fastScrollEnabled="true" />
 </RelativeLayout>
