@@ -10,7 +10,9 @@ namespace PZ.Sklep.Models
         public ProductDescription()
         {
             Description = "pusty opis produktu";
+            Value = "waaaaat?";
         }
         public string Description { get; set; }
+        public string Value { get; set; }
     }
 }
