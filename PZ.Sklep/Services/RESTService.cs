@@ -77,10 +77,18 @@ namespace PZ.Sklep.Services
                     {
                         "tag1", "tag2","tag3"
                     },
-                    Description = new ProductDescription()
-                    {
-                        Description = "bla bla opis"
-                    },
+                    Description = new Func<JToken, ProductDescription>(jt => {
+                        var jDescription = jt.SelectToken("description");
+                        if (jDescription.HasValues == false)
+                            return new ProductDescription() { Description = "xd" };
+                        string id = (string)jDescription["id"];
+                        string name = (string)jDescription["name"];
+                        string value = (string)jDescription["value"];
+                        return new ProductDescription()
+                        {
+                            Description = value,
+                        };
+                    })(p),
                     SizesQuantity = new Dictionary<string, int>()
                     {
                         {"s",10 },{"m",10 },{"l",10 },{"xl",10 }
