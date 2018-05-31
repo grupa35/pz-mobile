@@ -57,11 +57,22 @@ namespace PZ.Sklep.Services
                 JArray productsJSON = JArray.Parse(json);
                 data = productsJSON.Select(p => new Product
                 {
-                    //jak bekend będzie wysyłał zdjęcia? - chuj wie. reszta danych jest popierdolona to ich nie ustawiam
                     Id = (string)p["id"],
                     Name = (string)p["name"],
                     Price = (decimal)p["price"],
                     Img = "http://shopgen.pl" + (string)p["imgUrl"],
+                    Category = new Func<JToken, Category>(jt => {
+                        var jCategory = jt.SelectToken("category");
+                        if (jCategory.HasValues == false)
+                            return new Category() { id = "api", name = "srapi" };
+                        string id = (string)jCategory["id"];
+                        string name = (string)jCategory["name"];
+                        return new Category()
+                        {
+                            id = id,
+                            name = name
+                        };
+                    })(p),
                     Tags = new List<string>()
                     {
                         "tag1", "tag2","tag3"
@@ -78,26 +89,5 @@ namespace PZ.Sklep.Services
             });
             return data;
         }
-
-        //private static async Task<List<Category>> DeserializeCategories(string json)
-        //{
-        //    List<Category> data = new List<Category>();
-        //    await Task.Run(() => {
-        //        JArray productsJSON = JArray.Parse(json);
-        //        data = productsJSON.Select(p => new Category
-        //        {             
-        //            id = (string)p["id"],
-        //            name = (string)p["name"],
-        //            subcategories =
-        //            p["subcategories"].Select(c => new Category
-        //            {
-        //                id = (string)c["id"],
-        //                name = (string)c["name"],
-        //                // problem jak więcej zagnieżdżonych podkategorii
-        //            }).ToList(),
-        //        }).ToList();
-        //    });
-        //    return data;
-        //}
     }
 }

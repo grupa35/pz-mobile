@@ -13,15 +13,16 @@ using System.Threading.Tasks;
 
 namespace PZ.Sklep.Activities
 {
-    [Activity(Label = "ProductListPageActivity")]
+    [Activity(Label = "ProductListPageActivity", Theme = "@style/CategoryTheme")]
     public class ProductListPageActivity: Activity
     {
 
         ListView productList;
-        private const int PAGESIZE = 9;
+        private int PAGESIZE = 9;
         private ProgressDialog progressDialog;
         private Button btnLoad;
         private List<Product> allItems;
+        private List<Product> zmiennaktorarozumiemtylkojahahaha;
         private int page = 1;
         private int maxPosition;
 
@@ -44,8 +45,12 @@ namespace PZ.Sklep.Activities
                     UITools.EndLoadingDialog(progressDialog);
                 });
             });
+            string categoryId = Intent.GetStringExtra("categoryId");
+            zmiennaktorarozumiemtylkojahahaha = SessionService.cachedProducts.Where(x => x.Category.id.Equals(categoryId)).ToList();
+            if (zmiennaktorarozumiemtylkojahahaha.Count <= PAGESIZE)
+                PAGESIZE = zmiennaktorarozumiemtylkojahahaha.Count;
 
-            allItems = SessionService.cachedProducts.Take(PAGESIZE).ToList();
+            allItems = zmiennaktorarozumiemtylkojahahaha.Take(PAGESIZE).ToList();
             maxPosition = allItems.Count;
 
             btnLoad = new Button(this);
@@ -56,7 +61,7 @@ namespace PZ.Sklep.Activities
                 btnLoad.Enabled = false;
                 btnLoad.Text = "Brak przedmiotów!";
             }
-            else if (SessionService.cachedProducts.Count <= PAGESIZE)
+            else if (zmiennaktorarozumiemtylkojahahaha.Count <= PAGESIZE)
             {
                 btnLoad.Visibility = ViewStates.Invisible;
             }
@@ -77,7 +82,7 @@ namespace PZ.Sklep.Activities
             {
                 UITools.EndLoadingDialog(progressDialog);
 
-                var list = SessionService.cachedProducts.Skip(page * PAGESIZE).Take(PAGESIZE).ToList();
+                var list = zmiennaktorarozumiemtylkojahahaha.Skip(page * PAGESIZE).Take(PAGESIZE).ToList();
                 allItems.AddRange(list);
                 productList.Adapter = new MyCustomListAdapter(allItems);
                 productList.SetSelection(maxPosition);
@@ -87,7 +92,7 @@ namespace PZ.Sklep.Activities
             {
                 btnLoad.Visibility = ViewStates.Invisible;
             }
-            else if (allItems.Count % 2 == 0 && allItems.Count == SessionService.cachedProducts.Count)
+            else if (allItems.Count % 2 == 0 && allItems.Count == zmiennaktorarozumiemtylkojahahaha.Count)
             {
                 btnLoad.Visibility = ViewStates.Invisible;
 
