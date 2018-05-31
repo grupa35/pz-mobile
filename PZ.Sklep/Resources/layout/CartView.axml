@@ -27,17 +27,17 @@
     <ListView
         android:id="@+id/cartListView"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="523dp"
+        android:background="#ffffff"
+        android:divider="#fcfcfc"
+        android:dividerHeight="10.0sp"
         android:layout_marginTop="55dp"
-        android:background="@android:color/background_light"
         android:fastScrollEnabled="true" />
     <LinearLayout
-        android:orientation="horizontal"
-        android:background="#ff46a1e1"
-        android:minWidth="50px"
-        android:minHeight="50px"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:background="@drawable/tlbrStyle"
         android:layout_below="@id/cartListView"
         android:id="@+id/cartTotalPriceLayout">
         <TextView
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:text="Koszt całkowity:        "
+            android:text="Total price:        "
             android:textSize="18dp" />
         <TextView
             android:id="@+id/cartTotalPrice"
@@ -65,6 +65,16 @@
             android:layout_marginTop="20dp"
             android:textColor="#000000"
             android:text="zł"
+            android:layout_marginLeft="20dp"
+            android:textSize="18dp" />
+        <Button
+            android:id="@+id/buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:textColor="#000000"
+            android:text="BUY NOW!"
             android:layout_alignParentRight="true"
             android:textSize="18dp" />
     </LinearLayout>

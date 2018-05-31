@@ -53,8 +53,9 @@ namespace PZ.Sklep
                 var name = view.FindViewById<TextView>(Resource.Id.nameTextView);
                 var price = view.FindViewById<TextView>(Resource.Id.departmentTextView);
                 var btn = view.FindViewById<Button>(Resource.Id.addProductToCartFromListViewBtn);
+                var dsc = view.FindViewById<TextView>(Resource.Id.opisTextView);
 
-                view.Tag = new ViewHolder() { Photo = photo, Name = name, Price = price, Btn = btn };
+                view.Tag = new ViewHolder() { Photo = photo, Name = name, Price = price, Btn = btn, Dscr = dsc };
             }
 
             var holder = (ViewHolder)view.Tag;
@@ -62,14 +63,15 @@ namespace PZ.Sklep
             //holder.Photo.SetImageDrawable(ImageManager.Get(parent.Context, users[position].ImageUrl));
             //int mydrw = (int)typeof(Resource.Drawable).GetField(products[position].Img).GetValue(null);
             //holder.Photo.SetImageDrawable(parent.Context.GetDrawable(mydrw));
-            Picasso.With(parent.Context).Load(products[position].Img).Resize(100, 100).CenterCrop().Into(holder.Photo);
+            Picasso.With(parent.Context).Load(products[position].Img).Resize(200, 200).CenterCrop().Into(holder.Photo);
             holder.Name.Text = products[position].Name;
             holder.Price.Text = "Cena: " + products[position].Price;
+            holder.Dscr.Text = products[position].Description.Description;
 
             var localClickListener = new LocalOnclickListener();
             localClickListener.HandleOnClick = () =>
             {
-                Toast.MakeText(parent.Context, products[position].Name + " usunięty z koszyka!", ToastLength.Long).Show();
+                Toast.MakeText(parent.Context, products[position].Name + " removed from cart!", ToastLength.Long).Show();
                 SessionService.cart.Products.Remove(products[position]);
 
                 this.NotifyDataSetChanged();
