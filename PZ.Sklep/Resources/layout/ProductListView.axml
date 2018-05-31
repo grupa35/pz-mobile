@@ -23,13 +23,13 @@
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
     <ListView
-        android:divider="@null"
-        android:dividerHeight="0dp"
         android:id="@+id/productListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="55dp"
         android:layout_marginBottom="0dp"
-        android:background="@android:color/background_light"
+        android:background="#ffffff"
+        android:divider="#fcfcfc"
+        android:dividerHeight="10.0sp"
         android:fastScrollEnabled="true" />
 </RelativeLayout>

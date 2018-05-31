@@ -194,10 +194,6 @@ namespace PZ.Sklep.Activities
             {
                 ShowActivity(typeof(CartActivity));
             }
-            else if (strMenuText.Equals(MenuItemStrings.ShopsList))
-            {
-                ShowActivity(typeof(PokazSklepyActivity));
-            }
             else if (strMenuText.Equals(MenuItemStrings.TurnOff))
             {
                 System.Environment.Exit(0);
