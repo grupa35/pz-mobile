@@ -2,24 +2,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="150dp"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:paddingBottom="4dp"
+    android:padding="4dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
     android:descendantFocusability="blocksDescendants">
     <ImageView
         android:id="@+id/photoImageView"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:padding="5dp" />
+        android:padding="5dp"
+        android:background="#e8e9ea"
+        android:paddingLeft="25dp" />
     <TextView
         android:id="@+id/nameTextView"
         android:layout_toRightOf="@id/photoImageView"
         android:text="Name"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
+        android:background="#e8e9ea"
         android:layout_height="wrap_content"
         android:paddingLeft="5dp"
         android:textColor="#000000" />
@@ -27,15 +34,16 @@
         android:id="@+id/departmentTextView"
         android:layout_toRightOf="@id/photoImageView"
         android:layout_below="@id/nameTextView"
-        android:text="Department"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#e8e9ea"
         android:paddingLeft="5dp"
         android:textColor="#000000" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="#e8e9ea"
         android:gravity="right"
         android:orientation="horizontal">
         <Button

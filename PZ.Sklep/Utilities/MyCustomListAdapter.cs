@@ -67,7 +67,7 @@ namespace PZ.Sklep
             //holder.Photo.SetImageDrawable(ImageManager.Get(parent.Context, users[position].ImageUrl));
             //int mydrw = (int)typeof(Resource.Drawable).GetField(products[position].Img).GetValue(null);
             //holder.Photo.SetImageDrawable(parent.Context.GetDrawable(mydrw));
-            Picasso.With(parent.Context).Load(products[position].Img).Resize(100, 100).CenterCrop().Into(holder.Photo);
+            Picasso.With(parent.Context).Load(products[position].Img).Resize(200, 200).CenterCrop().Into(holder.Photo);
             holder.Name.Text = products[position].Name;
             holder.Price.Text ="Cena: " + products[position].Price;
 
