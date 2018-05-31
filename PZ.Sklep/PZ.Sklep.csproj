@@ -144,6 +144,7 @@
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Services\UITools.cs" />
     <Compile Include="Utilities\APIUrlsMap.cs" />
+    <Compile Include="Utilities\CardAdapter.cs" />
     <Compile Include="Utilities\CartListAdapter.cs" />
     <Compile Include="Utilities\CategoryHolder.cs" />
     <Compile Include="Utilities\CategoryListViewAdapter.cs" />
@@ -199,6 +200,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\CartView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CardRow.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
