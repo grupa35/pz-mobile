@@ -10,7 +10,7 @@
         android:id="@+id/productTitleBar"
         android:layout_width="fill_parent"
         android:layout_height="55dp"
-        android:background="#ff46a1e1">
+        android:background="@drawable/tlbrStyle">
         <TextView
             android:id="@+id/txtProductTitle"
             android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="55dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="0dp"
         android:background="@android:color/background_light"
         android:fastScrollEnabled="true" />
 </RelativeLayout>

@@ -56,11 +56,9 @@ namespace PZ.Sklep.Utilities
 
             var titleTextView = view.FindViewById<TextView>(Resource.Id.cardViewText);
             var background = view.FindViewById<ImageView>(Resource.Id.cardBackground);
-            //trzeba zmieniać obrazek tła w zależności od id kategorii
-            //trzeba zrobić w Utilitisach jakiś Dictionary<string,int> CategoryImages; na wzór APIUrlsMap gdzie kluczem będzie id kategorii a wartością będzie resource.id
-            //i odwoływać się na przykład background.SetBackgroundResource(GlobalStaticDict.CategoryImages[cards[position].id]);
-            background.SetBackgroundResource(Resource.Drawable.smieszne);
 
+            var key = cards[position].id;
+            background.SetImageResource(BackgroundsDict.CategoryImages[key]);
             titleTextView.Text = cards[position].name;
             return view;
         }

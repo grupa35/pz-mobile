@@ -89,8 +89,17 @@ namespace PZ.Sklep.Activities
 
         private void OnSubcategoryClickHandler(object sender, AdapterView.ItemClickEventArgs e)
         {
-            var intent = new Intent(this, typeof(ProductListPageActivity));
-            StartActivity(intent);
+            try
+            {
+                Category clickedCategory = (SessionService.Data[APIUrlsMap.Categories] as List<Category>)[e.Position];
+                var intent = new Intent(this, typeof(ProductListPageActivity));
+                intent.PutExtra("categoryId", clickedCategory.id);
+                StartActivity(intent);
+            }
+            catch(Exception ex)
+            {
+                Toast.MakeText(ApplicationContext, "INTERNAL ERROR", ToastLength.Short).Show();
+            }
         }
 
         //public override void OnBackPressed()
