@@ -22,6 +22,7 @@ namespace PZ.Sklep.Activities
         ImageView singleProductPhoto;
         TextView productName;
         TextView productDescription;
+        TextView productPrice;
         Button addToCartButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -58,6 +59,7 @@ namespace PZ.Sklep.Activities
             singleProductPhoto = FindViewById<ImageView>(Resource.Id.productImage);
             productName = FindViewById<TextView>(Resource.Id.productName);
             productDescription = FindViewById<TextView>(Resource.Id.productDescription);
+            productPrice = FindViewById<TextView>(Resource.Id.productPrice);
 
             Product product = SessionService.cachedProducts.Where(x => x.Id.Equals(productId)).FirstOrDefault();
 
@@ -66,6 +68,7 @@ namespace PZ.Sklep.Activities
             Picasso.With(this).Load(product.Img).Resize(600, 800).CenterCrop().Into(singleProductPhoto);
             productName.Text = product.Name;
             productDescription.Text = product.Description.Description;
+            productPrice.Text = product.Price.ToString() + " zł";
         }
 
 
