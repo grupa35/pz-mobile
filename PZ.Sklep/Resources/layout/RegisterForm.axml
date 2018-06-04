@@ -23,45 +23,48 @@
         android:layout_height="100px"
         android:id="@+id/regEditName"
         android:textColor="#368DEB"
-        android:cursorVisible="false"
+        android:cursorVisible="true"
         android:gravity="center"
         android:textColorHint="#D6E8FB"
         android:hint="your name..."
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/EditTextStyle" />
+        android:background="@drawable/EditTextStyle" 
+        android:textCursorDrawable="@drawable/mycursor"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:id="@+id/regEditSurname"
         android:textColor="#368DEB"
-        android:cursorVisible="false"
+        android:cursorVisible="true"
         android:gravity="center"
         android:textColorHint="#D6E8FB"
         android:hint="your surname..."
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/EditTextStyle" />
+        android:background="@drawable/EditTextStyle"
+        android:textCursorDrawable="@drawable/mycursor"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:id="@+id/regEditEmail"
         android:textColor="#368DEB"
-        android:cursorVisible="false"
+        android:cursorVisible="true"
         android:gravity="center"
         android:textColorHint="#D6E8FB"
         android:hint="your email..."
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/EditTextStyle" />
+        android:background="@drawable/EditTextStyle"
+        android:textCursorDrawable="@drawable/mycursor"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:id="@+id/regEditPass"
-        android:cursorVisible="false"
+        android:cursorVisible="true"
         android:textColor="#368DEB"
         android:gravity="center"
         android:textColorHint="#D6E8FB"
@@ -70,12 +73,13 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:inputType="textPassword"
-        android:background="@drawable/EditTextStyle" />
+        android:background="@drawable/EditTextStyle" 
+        android:textCursorDrawable="@drawable/mycursor"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:id="@+id/regEditPassRep"
-        android:cursorVisible="false"
+        android:cursorVisible="true"
         android:textColor="#368DEB"
         android:gravity="center"
         android:textColorHint="#D6E8FB"
@@ -84,7 +88,8 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:inputType="textPassword"
-        android:background="@drawable/EditTextStyle" />
+        android:background="@drawable/EditTextStyle"
+        android:textCursorDrawable="@drawable/mycursor"/>
     <Button
         android:text="Register"
         android:layout_width="match_parent"

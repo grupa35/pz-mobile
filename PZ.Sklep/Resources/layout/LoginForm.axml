@@ -23,19 +23,20 @@
         android:layout_height="100px"
         android:id="@+id/editLogin"
         android:textColor="#368DEB"
-        android:cursorVisible="false"
+        android:cursorVisible="true"
         android:gravity="center"
         android:textColorHint="#D6E8FB"
         android:hint="your email..."
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/EditTextStyle" />
+        android:background="@drawable/EditTextStyle"
+        android:textCursorDrawable="@drawable/mycursor"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:id="@+id/editPass"
-        android:cursorVisible="false"
+        android:cursorVisible="true"
         android:textColor="#368DEB"
         android:gravity="center"
         android:textColorHint="#D6E8FB"
@@ -44,7 +45,8 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:inputType="textPassword"
-        android:background="@drawable/EditTextStyle" />
+        android:background="@drawable/EditTextStyle"
+        android:textCursorDrawable="@drawable/mycursor"/>
     <Button
         android:text="Sign in"
         android:layout_width="match_parent"
