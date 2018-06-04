@@ -61,12 +61,49 @@ namespace PZ.Sklep
                 
                 if (data.resultCode == 0)
                 {
-                    Toast.MakeText(this, "Account created", ToastLength.Short).Show();                   
+                    Toast.MakeText(this, "Account created", ToastLength.Short).Show();
+                    Login(mail.Text, pass.Text);
+                    Finish();
                 }
                 else
                 {
-                    Toast.MakeText(this, "Error, try again", ToastLength.Short).Show();
+                    Toast.MakeText(this, BackgroundsDict.RegisterErrors[data.resultCode], ToastLength.Short).Show();
                 }
+            }
+            else
+            {
+                UITools.checkInternetConnection(this);
+                Toast.MakeText(ApplicationContext, "Aplikacja wymaga uzycia internetu !", ToastLength.Short).Show();
+            }
+        }
+        private async void Login(string email, string pass)
+        {
+            if (UITools.isConnected())
+            {
+                string json = $"{{\"email\":\"{email}\",\"password\":\"{pass}\"}}";
+
+                UITools.checkInternetConnection(this);
+                progressDialog = UITools.CreateAndShowLoadingDialog(this);
+                await RESTService.Login(APIUrlsMap.Login, json, false, RestSharp.Method.POST).ContinueWith(t =>
+                {
+                    RunOnUiThread(() =>
+                    {
+                        UITools.EndLoadingDialog(progressDialog);
+                    });
+                    if (SessionService.Token != string.Empty)
+                    {
+                        Intent intent = new Intent(this, typeof(ShopPageActivity));
+                        StartActivity(intent);
+                        Finish();
+                    }
+                    else // nie wiem czemu bez tego przechodzi do innego activity
+                    {
+                        //Intent intent = new Intent(this, typeof(LoginActivity));
+                        //StartActivity(intent);
+                        //Finish();
+                        Toast.MakeText(ApplicationContext, "Error during login", ToastLength.Short).Show();
+                    }
+                });
             }
             else
             {
