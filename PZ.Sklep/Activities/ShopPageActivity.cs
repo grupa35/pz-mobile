@@ -101,6 +101,7 @@ namespace PZ.Sklep.Activities
                 Category clickedCategory = (SessionService.Data[APIUrlsMap.Categories] as List<Category>)[e.Position];
                 var intent = new Intent(this, typeof(ProductListPageActivity));
                 intent.PutExtra("categoryId", clickedCategory.name);
+                intent.PutExtra("flag", "products");
                 StartActivity(intent);
             }
             catch(Exception ex)
@@ -172,10 +173,35 @@ namespace PZ.Sklep.Activities
                 layoutParams.Height = ViewGroup.LayoutParams.MatchParent;
                 menuListView.LayoutParameters = layoutParams;
             }
-            var turnOffImage = FindViewById<ImageView>(Resource.Id.imgWYLONCZ);
-            turnOffImage.Click += delegate
+            var searchImage = FindViewById<ImageView>(Resource.Id.searchButton);
+            searchImage.Click += delegate
             {
-                System.Environment.Exit(0);
+                SessionService.searchedProducts.Clear();
+                LayoutInflater layoutInflater = LayoutInflater.From(this);
+                View view = layoutInflater.Inflate(Resource.Layout.InputDialog, null);
+                Android.Support.V7.App.AlertDialog.Builder alertbuilder = new Android.Support.V7.App.AlertDialog.Builder(this);
+                alertbuilder.SetView(view);
+                var userdata = view.FindViewById<EditText>(Resource.Id.searchText);
+                alertbuilder.SetCancelable(false)
+                .SetPositiveButton("search", delegate
+                {
+                    List<string> searchList = userdata.Text.ToLower().Split(' ').ToList();
+                    foreach(Product product in SessionService.cachedProducts)
+                    {
+                        if (product.CheckIfContains(searchList) == true)
+                            SessionService.searchedProducts.Add(product);
+                    }
+                    
+                    var intent = new Intent(this, typeof(ProductListPageActivity));
+                    intent.PutExtra("flag", "search");
+                    StartActivity(intent);
+                })
+                .SetNegativeButton("Cancel", delegate
+                {
+                    alertbuilder.Dispose();
+                });
+                Android.Support.V7.App.AlertDialog dialog = alertbuilder.Create();
+                dialog.Show();
             };
             //menuListView.LayoutParameters = new RelativeLayout.LayoutParams(intDisplayWidth, ViewGroup.LayoutParams.MatchParent);
         }
