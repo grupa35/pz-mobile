@@ -36,18 +36,27 @@ namespace PZ.Sklep.Activities
             productList = FindViewById<ListView>(Resource.Id.productListView);
             productList.ItemClick += OnProductClickHandler;
 
-            progressDialog = UITools.CreateAndShowLoadingDialog(this);
-
-            await RESTService.DownloadProductsFromAPI().ContinueWith(t =>
+            if (Intent.GetStringExtra("flag").Equals("products"))
             {
-                RunOnUiThread(() =>
-                {
-                    UITools.EndLoadingDialog(progressDialog);
-                });
-            });
-            string categoryId = Intent.GetStringExtra("categoryId");
+                progressDialog = UITools.CreateAndShowLoadingDialog(this);
 
-            zmiennaktorarozumiemtylkojahahaha = SessionService.cachedProducts.Where(x => x.Category.name.Equals(categoryId)).ToList();
+                await RESTService.DownloadProductsFromAPI().ContinueWith(t =>
+                {
+                    RunOnUiThread(() =>
+                    {
+                        UITools.EndLoadingDialog(progressDialog);
+                    });
+                });
+                string categoryId = Intent.GetStringExtra("categoryId");
+
+                zmiennaktorarozumiemtylkojahahaha = SessionService.cachedProducts.Where(x => x.Category.name.Equals(categoryId)).ToList();
+            }
+            else
+            {
+
+                zmiennaktorarozumiemtylkojahahaha = SessionService.searchedProducts;
+            }
+
             if (zmiennaktorarozumiemtylkojahahaha.Count <= PAGESIZE)
                 PAGESIZE = zmiennaktorarozumiemtylkojahahaha.Count;
             //masakra o co tu chodziło...
