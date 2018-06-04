@@ -133,14 +133,13 @@ namespace PZ.Sklep
                 var data = (ResponseStatusDTO)SessionService.Data[APIUrlsMap.ChangeMail];
                 if (data.code == 0)
                 {
-                    RESTService.Logout(APIUrlsMap.Logout);
-                    var intent = new Intent(this, typeof(LoginActivity));
-                    StartActivity(intent);
-                    Finish();
+                    Toast.MakeText(ApplicationContext, "Email changed!", ToastLength.Short).Show();
+                    var emailTxt = FindViewById<TextView>(Resource.Id.profileEmail);
+                    emailTxt.Text = email.Text;
                 }
                 else
                 {
-                    Toast.MakeText(this, "error", ToastLength.Short).Show();
+                    Toast.MakeText(this, "api error", ToastLength.Short).Show();
                 }
             }
             else
