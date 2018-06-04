@@ -6,6 +6,9 @@ using PZ.Sklep.Models;
 using Newtonsoft.Json.Linq;
 using PZ.Sklep.Mocks;
 using System;
+using RestSharp.Deserializers;
+using Newtonsoft.Json;
+using RestSharp.Authenticators;
 
 namespace PZ.Sklep.Services
 {
@@ -35,18 +38,48 @@ namespace PZ.Sklep.Services
         //    SessionService.cachedCategories = await DeserializeCategories(response.Content);
         //}
 
-        public static async Task DownloadFromApi<T>(string url, string strJSONContent = null, bool auth = false)
+        public static async Task DownloadFromApi<T>(string url, string strJSONContent = null, bool auth = false, Method method = Method.GET)
         {
-            var request = new RestRequest(url);
-            if(auth)
-                request.AddHeader("Authorization", "Bearer " + SessionService.Token);
-            if(strJSONContent != null)
+            var request = new RestRequest(url, method);
+            var tok = SessionService.Token;
+            if (strJSONContent != null)
             {
                 request.Parameters.Clear();
                 request.AddParameter("application/json", strJSONContent, ParameterType.RequestBody);
             }
+            if (auth)
+                request.AddHeader("Authorization", "Bearer " + SessionService.Token);     
             IRestResponse<T> response = await client.ExecuteTaskAsync<T>(request);
             SessionService.Data[url] = response.Data;
+        }
+
+        public static async Task Login(string url, string strJSONContent = null, bool auth = false, Method method = Method.GET)
+        {
+            var request = new RestRequest(url, method);
+            var tok = SessionService.Token;
+            if (strJSONContent != null)
+            {
+                request.Parameters.Clear();
+                request.AddParameter("application/json", strJSONContent, ParameterType.RequestBody);
+            }
+            if (auth)
+                request.AddHeader("Authorization", "Bearer " + SessionService.Token);
+            IRestResponse<LoginResponse> response = await client.ExecuteTaskAsync<LoginResponse>(request);
+            SessionService.Data[url] = response.Data;
+            var status = response.StatusCode.ToString();
+            if (status == "OK")
+                SessionService.Token = response.Headers[0].Value.ToString();
+        }
+
+        public static string Logout(string url)
+        {
+            var request = new RestRequest(url, Method.GET);
+            request.AddHeader("Authorization", "Bearer " + SessionService.Token);
+            IRestResponse response = client.Execute(request);
+            var status = response.StatusCode.ToString();
+            if (status == "NoContent")
+                SessionService.Token = string.Empty;   
+            return status;
         }
 
         private static async Task<List<Product>> DeserializeProducts(string json)

@@ -72,6 +72,13 @@ namespace PZ.Sklep.Activities
                         UITools.EndLoadingDialog(progressDialog);
                     }); 
                 });
+                /*await RESTService.DownloadFromApi<User>(APIUrlsMap.CurrentUser, null, true).ContinueWith(t =>
+                {
+                    RunOnUiThread(() =>
+                    {
+                        UITools.EndLoadingDialog(progressDialog);
+                    });
+                });*/
 
                 //categoryListView.SetAdapter(new CategoryListViewAdapter(this, SessionService.Data[APIUrlsMap.Categories] as List<Category>));
                 //categoryListView.ChildClick += OnSubcategoryClickHandler;
@@ -175,8 +182,29 @@ namespace PZ.Sklep.Activities
         #region " Menu related"
         void FnBindMenu()
         {
-            string[] strMnuText = { MenuItemStrings.MainPage, MenuItemStrings.Cart, MenuItemStrings.TurnOff };
-            int[] strMnuUrl = { Resource.Drawable.icon_home, Resource.Drawable.cart, Resource.Drawable.turn_off };
+            var listMnuText = new List<string>() { MenuItemStrings.MainPage, MenuItemStrings.Cart};
+            var listMnuUrl = new List<int>() { Resource.Drawable.icon_home, Resource.Drawable.cart};
+
+            if(SessionService.Token != string.Empty)
+            {
+                listMnuText.Add(MenuItemStrings.Profile);
+                listMnuText.Add(MenuItemStrings.LogOut);
+
+                listMnuUrl.Add(Resource.Drawable.profile);             
+                listMnuUrl.Add(Resource.Drawable.log_out);
+            }
+            else
+            {
+                listMnuText.Add(MenuItemStrings.LogIn);
+                listMnuUrl.Add(Resource.Drawable.login);
+            }
+
+            listMnuText.Add(MenuItemStrings.TurnOff);
+            listMnuUrl.Add(Resource.Drawable.turn_off);
+
+            string[] strMnuText = listMnuText.ToArray();
+            int[] strMnuUrl = listMnuUrl.ToArray();
+            
             if (objAdapterMenu != null)
             {
                 objAdapterMenu.actionMenuSelected -= FnMenuSelected;
@@ -197,6 +225,21 @@ namespace PZ.Sklep.Activities
             else if (strMenuText.Equals(MenuItemStrings.TurnOff))
             {
                 System.Environment.Exit(0);
+            }
+            else if (strMenuText.Equals(MenuItemStrings.LogOut))
+            {
+                RESTService.Logout(APIUrlsMap.Logout);
+                ShowActivity(typeof(LoginActivity));
+                Finish();
+            }
+            else if (strMenuText.Equals(MenuItemStrings.LogIn))
+            {
+                ShowActivity(typeof(LoginActivity));
+                Finish();
+            }
+            else if (strMenuText.Equals(MenuItemStrings.Profile))
+            {
+                ShowActivity(typeof(ProfileActivity));
             }
 
         }
