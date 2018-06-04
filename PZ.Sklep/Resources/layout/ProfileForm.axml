@@ -86,7 +86,7 @@
     <EditText
         android:id="@+id/profileNewMail"
         android:textColor="#368DEB"
-        android:cursorVisible="false"
+        android:cursorVisible="true"
         android:gravity="center"
         android:textColorHint="#D6E8FB"
         android:hint="change email..."
@@ -96,7 +96,8 @@
         android:background="@drawable/EditTextStyle"
         android:layout_columnSpan="2"
         android:layout_width="match_parent"
-        android:layout_height="100px" />
+        android:layout_height="100px"
+        android:textCursorDrawable="@drawable/mycursor"/>
     <Button
         android:text="Confirm"
         android:background="@drawable/btnStyle"
@@ -111,7 +112,7 @@
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/profileOldPass"
-        android:cursorVisible="false"
+        android:cursorVisible="true"
         android:textColor="#368DEB"
         android:gravity="center"
         android:textColorHint="#D6E8FB"
@@ -123,10 +124,12 @@
         android:background="@drawable/EditTextStyle"
         android:layout_columnSpan="2"
         android:layout_width="match_parent"
-        android:layout_height="100px" />
+        android:layout_height="100px"
+        android:textCursorDrawable="@drawable/mycursor"
+        />
     <EditText
         android:id="@+id/profileNewPass"
-        android:cursorVisible="false"
+        android:cursorVisible="true"
         android:textColor="#368DEB"
         android:gravity="center"
         android:textColorHint="#D6E8FB"
@@ -138,10 +141,11 @@
         android:background="@drawable/EditTextStyle"
         android:layout_columnSpan="2"
         android:layout_width="match_parent"
-        android:layout_height="100px" />
+        android:layout_height="100px"
+        android:textCursorDrawable="@drawable/mycursor"/>
     <EditText
         android:id="@+id/profileNewPassRep"
-        android:cursorVisible="false"
+        android:cursorVisible="true"
         android:textColor="#368DEB"
         android:gravity="center"
         android:textColorHint="#D6E8FB"
@@ -153,7 +157,8 @@
         android:background="@drawable/EditTextStyle"
         android:layout_columnSpan="2"
         android:layout_width="match_parent"
-        android:layout_height="100px" />
+        android:layout_height="100px"
+        android:textCursorDrawable="@drawable/mycursor"/>
     <Button
         android:text="Reset password"
         android:background="@drawable/btnStyle"

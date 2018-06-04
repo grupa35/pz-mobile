@@ -15,7 +15,7 @@ using Square.Picasso;
 
 namespace PZ.Sklep.Activities
 {
-    [Activity(Label = "ProductDetailsActivity", Theme = "@android:style/Theme.NoTitleBar")]
+    [Activity(Label = "ProductDetailsActivity", Theme = "@style/CategoryTheme")]
     public class ProductDetailsActivity : Activity
     {
         LinearLayout singleProductView;
