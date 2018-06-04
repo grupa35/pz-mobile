@@ -69,8 +69,20 @@ namespace PZ.Sklep.Activities
             productName.Text = product.Name;
             productDescription.Text = product.Description.Description;
             productPrice.Text = product.Price.ToString() + " zł";
+
+            //Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner2);
+            //spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+            //string[] planetNames = { "elo", "elo2" };
+            //var adapter = new ArrayAdapter<string>(this, Resource.Layout.spinner_text, planetNames);
+            //adapter.SetDropDownViewResource(Resource.Drawable.simple_spinner_dropdown);
+            //spinner.Adapter = adapter;
         }
 
-
+        private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            //Spinner spinner = (Spinner)sender;
+            //string toast = string.Format("The planet is {0}", spinner.GetItemAtPosition(e.Position));
+            //Toast.MakeText(this, toast, ToastLength.Long).Show();
+        }
     }
 }

@@ -24,4 +24,9 @@
     <item name="colorAccent">#000000</item>
     <item name="colorControlHighlight">#00B0FF</item>
   </style>
+  <style name="spinnerItemStyle" parent="android:Widget.TextView.SpinnerItem">
+  </style>
+
+  <style name="spinnerDropDownItemStyle" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
+  </style>
 </resources>

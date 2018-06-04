@@ -6,4 +6,5 @@
 	 <string name="open_drawer">Open drawer</string>
 	<string name="close_drawer">Close drawer</string>
   <string name="element_text">Element</string>
+  <string name="czuz_sajz">Choose size</string>
 </resources>

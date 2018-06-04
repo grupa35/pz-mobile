@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:background="#ffffff">
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="300dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
+        android:layout_gravity="center"
         android:id="@+id/productImage" />
     <TextView
         android:text="Text"
@@ -23,7 +23,7 @@
         android:paddingRight="40dp"
         android:paddingBottom="2dp"
         android:paddingTop="15dp"
-        android:id="@+id/productPrice"/>
+        android:id="@+id/productPrice" />
     <TextView
         android:text="Text"
         android:textColor="#696969"
@@ -42,6 +42,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/productDescription" />
+    <!--<RelativeLayout
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="3dp"
+        android:layout_weight=".28"
+        android:background="@drawable/drop"
+        android:orientation="horizontal">
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:spinnerMode="dropdown" />
+    </RelativeLayout>-->
     <Button
         android:text="Dodaj do koszyka"
         android:layout_width="match_parent"
@@ -53,6 +71,5 @@
         android:layout_marginTop="100dp"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
-        android:layout_gravity="bottom"/>
-
+        android:layout_gravity="bottom" />
 </LinearLayout>
