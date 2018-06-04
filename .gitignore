@@ -286,3 +286,4 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+PZ.Sklep/Resources/Resource.Designer.cs
