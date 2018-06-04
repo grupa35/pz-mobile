@@ -46,11 +46,11 @@ namespace PZ.Sklep.Activities
                 });
             });
             string categoryId = Intent.GetStringExtra("categoryId");
-            //zmieniłem matchowanie produktów z kategoriami po nazwie bo przecie srapi jest jakieś pojebane
+
             zmiennaktorarozumiemtylkojahahaha = SessionService.cachedProducts.Where(x => x.Category.name.Equals(categoryId)).ToList();
             if (zmiennaktorarozumiemtylkojahahaha.Count <= PAGESIZE)
                 PAGESIZE = zmiennaktorarozumiemtylkojahahaha.Count;
-
+            //masakra o co tu chodziło...
             allItems = zmiennaktorarozumiemtylkojahahaha.Take(PAGESIZE).ToList();
             maxPosition = allItems.Count;
 

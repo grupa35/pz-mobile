@@ -37,7 +37,7 @@ namespace PZ.Sklep.Activities
         private void OnProductClickHandler(object sender, AdapterView.ItemClickEventArgs e)
         {
             var intent = new Intent(this, typeof(ProductDetailsActivity));
-            intent.PutExtra("sessionProductId", e.Position);
+            intent.PutExtra("sessionProductId",SessionService.cart.Products[e.Position].Id);
             StartActivity(intent);
         }
         private string CountTotalPrice()
