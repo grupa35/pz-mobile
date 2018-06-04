@@ -13,6 +13,7 @@ namespace PZ.Sklep.Services
         public static AppUser user;
         public static List<Product> cachedProducts;
         public static List<Category> cachedCategories;
+        public static List<Product> searchedProducts;
         public static Cart cart;
         public static string Token;
         public static bool IsUserLogged;
@@ -23,6 +24,7 @@ namespace PZ.Sklep.Services
         {
             cachedProducts = new List<Product>();
             cachedCategories = new List<Category>();
+            searchedProducts = new List<Product>();
             cart = new Cart();
             Data = new Dictionary<string, object>();
 
